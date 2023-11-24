@@ -3,7 +3,7 @@ import {Canvas} from '@react-three/fiber'
 import Loader  from '../components/Loader'
 import HomeInfo from '../components/HomeInfo'
 import {Island}   from '../models/Island,'
-import {Sky} from '../models/sky'
+import Sky from '../models/Sky'
 import { Bird } from '../models/Bird'
 import { Plane } from '../models/Plane'
 
