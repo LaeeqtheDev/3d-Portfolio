@@ -180,14 +180,14 @@ export const projects = [
     },
     {
         iconUrl: estate,
-        theme: 'btn-back-black',
+        theme: 'btn-back-green',
         name: 'LOCOPRO',
         description: 'Locopro is a state-of-the-art real estate platform developed using the MERN stack, featuring comprehensive property listings, an AI chatbot for personalized assistance, and an intuitive user dashboard. Built entirely by a full-stack web developer, Locopro ensures a seamless and efficient property search experience.',
         link: 'https://locopro-client.vercel.app/',
     },
 {
         iconUrl: car,
-        theme: 'btn-back-black',
+        theme: 'btn-back-red',
         name: 'Routelane',
         description: 'Routelane leverages Next.js to deliver a streamlined truck dispatching solution. Featuring real-time route optimization, dispatch management tools, and a responsive interface, Routelane enhances efficiency in logistics. Developed by a skilled full-stack web developer, it ensures seamless operations for transport businesses.',
         link: 'https://routelane.vercel.app/',
