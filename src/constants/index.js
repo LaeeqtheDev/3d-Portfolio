@@ -1,32 +1,6 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
-import  upwork from "../assets/images/upwork.svg";
-import  rex from "../assets/images/rex.png";
-import {
-    car,
-    contact,
-    css,
-    estate,
-    express,
-    git,
-    github,
-    html,
-    javascript,
-    linkedin,
-    mongodb,
-    motion,
-    mui,
-    nextjs,
-    nodejs,
-    pricewise,
-    react,
-    redux,
-    sass,
-    snapgram,
-    summiz,
-    tailwindcss,
-    threads,
-    typescript
-} from "../assets/icons";
+import { car, contact, css, estate, express, github, html, javascript, linkedin, mongodb, motion, mui, nextjs, pricewise, react, redux, sass, threads, tailwindcss, typescript } from "../assets/icons";
+import upwork from "../assets/images/upwork.svg";
+import rex from "../assets/images/rex.png";
 
 export const skills = [
     {
@@ -38,11 +12,6 @@ export const skills = [
         imageUrl: express,
         name: "Express",
         type: "Backend",
-    },
-    {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
     },
     {
         imageUrl: github,
@@ -79,7 +48,6 @@ export const skills = [
         name: "Next.js",
         type: "Frontend",
     },
-  
     {
         imageUrl: react,
         name: "React",
@@ -90,13 +58,11 @@ export const skills = [
         name: "Redux",
         type: "State Management",
     },
- 
     {
         imageUrl: tailwindcss,
         name: "Tailwind CSS",
         type: "Frontend",
     },
-   
 ];
 
 export const experiences = [
@@ -113,7 +79,6 @@ export const experiences = [
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
-   
     {
         title: "Web Developer",
         company_name: "Rex Tech",
@@ -127,7 +92,6 @@ export const experiences = [
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
-    
 ];
 
 export const socialLinks = [
@@ -170,12 +134,11 @@ export const projects = [
         description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
         link: 'https://github.com/LaeeqtheDev/carwheel',
     },
- 
     {
         iconUrl: estate,
         theme: 'btn-back-black',
         name: 'Ninja Player one stop for Athletes',
-        description: 'Developed a web application for Sports Events, facilitating  searches and connecting players with organizers.',
+        description: 'Developed a web application for Sports Events, facilitating searches and connecting players with organizers.',
         link: 'https://github.com/LaeeqtheDev/ninjaplayer',
     },
     {
@@ -184,5 +147,19 @@ export const projects = [
         name: 'BigHeads -NFT',
         description: 'App that leverages NFT to automatically generate AND let users buy.',
         link: 'https://github.com/LaeeqtheDev/NFT-Website',
+    },
+    {
+        iconUrl: estate,
+        theme: 'btn-back-black',
+        name: 'Locopro',
+        description: 'Locopro is a state-of-the-art real estate platform developed using the MERN stack, featuring comprehensive property listings, an AI chatbot for personalized assistance, and an intuitive user dashboard. Built entirely by a full-stack web developer, Locopro ensures a seamless and efficient property search experience.',
+        link: 'https://locopro-client.vercel.app/',
+    },
+    {
+        iconUrl: car,
+        theme: 'btn-back-black',
+        name: 'Routelane',
+        description: 'Routelane leverages Next.js to deliver a streamlined truck dispatching solution. Featuring real-time route optimization, dispatch management tools, and a responsive interface, Routelane enhances efficiency in logistics. Developed by a skilled full-stack web developer, it ensures seamless operations for transport businesses.',
+        link: 'https://routelane.vercel.app/',
     }
 ];
