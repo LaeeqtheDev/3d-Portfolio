@@ -25,7 +25,8 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    beauty
 } from "../assets/icons";
 
 export const skills = [
@@ -198,6 +199,13 @@ export const projects = [
         name: 'BigHeads -NFT',
         description: 'App that leverages NFT to automatically generate AND let users buy.',
         link: 'https://github.com/LaeeqtheDev/NFT-Website',
+    },
+     {
+        iconUrl: beauty,
+        theme: 'btn-back-black',
+        name: 'Aura',
+        description: 'Crafted with Next.js, our landing page for beauty products seamlessly blends elegant design with high-performance features',
+        link: 'https://auraherbal.vercel.app/',
     }
 ];
 
