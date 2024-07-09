@@ -25,8 +25,7 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript,
-    beauty
+    typescript
 } from "../assets/icons";
 
 export const skills = [
@@ -201,7 +200,7 @@ export const projects = [
         link: 'https://github.com/LaeeqtheDev/NFT-Website',
     },
      {
-        iconUrl: beauty,
+        iconUrl: threads,
         theme: 'btn-back-black',
         name: 'Aura',
         description: 'Crafted with Next.js, our landing page for beauty products seamlessly blends elegant design with high-performance features',
