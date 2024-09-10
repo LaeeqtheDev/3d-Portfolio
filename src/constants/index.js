@@ -1,6 +1,9 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
 import  upwork from "../assets/images/upwork.svg";
-import  rex from "../assets/images/rex.png";
+import  techsolutions from "../assets/icons/techsolutions.svg";
+import  creativeminds from "../assets/icons/creativeminds.svg";
+
+import  innovativewebs from "../assets/icons/innovativewebs.svg";
 import {
     car,
     contact,
@@ -25,10 +28,9 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript,
-    techsolutions,
-    creativeminds,
-    innovativewebs
+    typescript
+
+   
 } from "../assets/icons";
 
 export const skills = [
