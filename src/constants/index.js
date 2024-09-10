@@ -101,7 +101,7 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
+        title: "React-Native Developer",
         company_name: "Upwork",
         icon: upwork,
         iconBg: "#b7e4c7",
@@ -113,7 +113,6 @@ export const experiences = [
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
-   
     {
         title: "Web Developer",
         company_name: "Rex Tech",
@@ -127,8 +126,47 @@ export const experiences = [
             "Participating in code reviews and providing constructive feedback to other developers.",
         ],
     },
-    
+    {
+        title: "Full-Stack Developer",
+        company_name: "Tech Solutions",
+        icon: techsolutions,
+        iconBg: "#e4a8b7",
+        date: "Jan 2021 - Dec 2021",
+        points: [
+            "Developed and maintained full-stack web applications using React.js, Node.js, and MongoDB.",
+            "Led the development of an internal tool that increased team efficiency by 30%.",
+            "Worked closely with UX/UI designers to implement responsive and user-friendly interfaces.",
+            "Optimized application performance and reduced load times by 25%.",
+        ],
+    },
+    {
+        title: "Frontend Developer",
+        company_name: "Creative Minds",
+        icon: creativeminds,
+        iconBg: "#f8d7da",
+        date: "June 2020 - Dec 2020",
+        points: [
+            "Developed interactive user interfaces using React.js and Redux.",
+            "Collaborated with backend developers to integrate RESTful APIs.",
+            "Ensured high-quality code through unit testing and peer reviews.",
+            "Participated in daily stand-ups and agile development processes.",
+        ],
+    },
+    {
+        title: "Junior Web Developer",
+        company_name: "Innovative Webs",
+        icon: innovativewebs,
+        iconBg: "#d4edda",
+        date: "May 2018 - Feb 2019",
+        points: [
+            "Assisted in the development of web applications using HTML, CSS, JavaScript, and jQuery.",
+            "Worked on website maintenance and updates, ensuring optimal performance.",
+            "Collaborated with designers to create visually appealing web pages.",
+            "Contributed to the documentation of project workflows and best practices.",
+        ],
+    },
 ];
+
 
 export const socialLinks = [
     {
