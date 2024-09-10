@@ -25,7 +25,10 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    techsolutions,
+    creativeminds,
+    innovativewebs
 } from "../assets/icons";
 
 export const skills = [
