@@ -1,5 +1,6 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
 import  upwork from "../assets/images/upwork.svg";
+import  rex from "../assets/images/rex.png";
 import  techsolutions from "../assets/icons/techsolutions.svg";
 import  creativeminds from "../assets/icons/creativeminds.svg";
 
