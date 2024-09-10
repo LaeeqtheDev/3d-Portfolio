@@ -10,7 +10,7 @@ const HomeInfo = ({ currentStage }) => {
         <span className='font-semibold mx-2 text-white'>Laeeq</span>
         👋
         <br />
-        A FrontEnd Developer with Expertise in React/Next Js from Lahore, Pk
+        A FullStack Developer with Expertise in React/Next.js & React-Native from Lahore, Pk
       </h1>
     );
 
