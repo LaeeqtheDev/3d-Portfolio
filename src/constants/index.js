@@ -109,7 +109,7 @@ export const experiences = [
   {
     title: "Founder",
     company_name: "InvoiceStock",
-    icon: upwork,
+    icon: techsolutions,
     iconBg: "#b7e4c7",
     date: "Jan 2025 - Present",
     points: [
@@ -135,7 +135,7 @@ export const experiences = [
   {
     title: "Full Stack Engineer",
     company_name: "Upwork",
-    icon: techsolutions,
+    icon: upwork,
     iconBg: "#e4a8b7",
     date: "Oct 2021 - Jan 2025",
     points: [
