@@ -106,72 +106,73 @@ export const skills = [
 ];
 
 export const experiences = [
-    {
-        title: "React-Native Developer",
-        company_name: "Upwork",
-        icon: upwork,
-        iconBg: "#b7e4c7",
-        date: "March 2019 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "Rex Tech",
-        icon: rex,
-        iconBg: "#accbe1",
-        date: "Aug 2022 - Sept 2022",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full-Stack Developer",
-        company_name: "Tech Solutions",
-        icon: techsolutions,
-        iconBg: "#e4a8b7",
-        date: "Jan 2021 - Dec 2021",
-        points: [
-            "Developed and maintained full-stack web applications using React.js, Node.js, and MongoDB.",
-            "Led the development of an internal tool that increased team efficiency by 30%.",
-            "Worked closely with UX/UI designers to implement responsive and user-friendly interfaces.",
-            "Optimized application performance and reduced load times by 25%.",
-        ],
-    },
-    {
-        title: "Frontend Developer",
-        company_name: "Creative Minds",
-        icon: creativeminds,
-        iconBg: "#f8d7da",
-        date: "June 2020 - Dec 2020",
-        points: [
-            "Developed interactive user interfaces using React.js and Redux.",
-            "Collaborated with backend developers to integrate RESTful APIs.",
-            "Ensured high-quality code through unit testing and peer reviews.",
-            "Participated in daily stand-ups and agile development processes.",
-        ],
-    },
-    {
-        title: "Junior Web Developer",
-        company_name: "Innovative Webs",
-        icon: innovativewebs,
-        iconBg: "#d4edda",
-        date: "May 2018 - Feb 2019",
-        points: [
-            "Assisted in the development of web applications using HTML, CSS, JavaScript, and jQuery.",
-            "Worked on website maintenance and updates, ensuring optimal performance.",
-            "Collaborated with designers to create visually appealing web pages.",
-            "Contributed to the documentation of project workflows and best practices.",
-        ],
-    },
+  {
+    title: "Founder",
+    company_name: "InvoiceStock",
+    icon: upwork,
+    iconBg: "#b7e4c7",
+    date: "Jan 2025 - Present",
+    points: [
+      "Conceptualized and developed InvoiceStock, a SaaS platform for invoicing and stock management tailored for small businesses.",
+      "Led the full product lifecycle from ideation and design to deployment and ongoing maintenance.",
+      "Built the front-end using React.js, Next.js, Tailwind CSS, and Shadcn; developed the back-end with Node.js, Express.js, and Neon database.",
+      "Defined business strategy, drove growth initiatives, and integrated customer feedback to continuously improve the product.",
+    ],
+  },
+  {
+    title: "Chief Executive Officer",
+    company_name: "Routelane",
+    icon: rex,
+    iconBg: "#accbe1",
+    date: "Mar 2024 - Present",
+    points: [
+      "Led and oversaw trucking and logistics operations, focusing on strong carrier relationships and operational efficiencies.",
+      "Streamlined dispatching processes and implemented advanced technology solutions.",
+      "Managed financial performance, budgeting, and long-term strategic growth.",
+      "Ensured exceptional client service and compliance with industry regulations.",
+    ],
+  },
+  {
+    title: "Full Stack Engineer",
+    company_name: "Upwork",
+    icon: techsolutions,
+    iconBg: "#e4a8b7",
+    date: "Oct 2021 - Jan 2025",
+    points: [
+      "Developed end-to-end web applications using React.js, Node.js, Express, and MongoDB.",
+      "Designed RESTful APIs, implemented authentication protocols, and managed database solutions.",
+      "Focused on scalable, secure, and high-performance code delivery.",
+      "Collaborated with cross-functional teams to ensure timely and quality project outcomes.",
+    ],
+  },
+  {
+    title: "React Developer",
+    company_name: "Altura Web Systems",
+    icon: creativeminds,
+    iconBg: "#f8d7da",
+    date: "Aug 2018 - Mar 2021",
+    points: [
+      "Built high-performance, user-friendly web applications using React.js, JavaScript, and TypeScript.",
+      "Translated design prototypes from Figma/Adobe XD into responsive and accessible web pages.",
+      "Optimized website performance, improved load times, and integrated APIs for dynamic user experiences.",
+      "Collaborated with cross-functional teams using Agile methodologies and CI/CD pipelines.",
+    ],
+  },
+  {
+    title: "Frontend Developer",
+    company_name: "Unicorn Production LAB",
+    icon: innovativewebs,
+    iconBg: "#d4edda",
+    date: "Feb 2018 - May 2018",
+    points: [
+      "Developed and maintained interactive user interfaces using HTML, CSS, JavaScript, and React.js.",
+      "Collaborated with designers and backend developers to create seamless web experiences.",
+      "Optimized site performance and ensured cross-browser compatibility.",
+      "Gained hands-on experience in version control and agile development practices.",
+    ],
+  },
 ];
+
 
 
 export const socialLinks = [
