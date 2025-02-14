@@ -107,7 +107,7 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Founder",
+    title: "Frontend Developer",
     company_name: "InvoiceStock",
     icon: techsolutions,
     iconBg: "#b7e4c7",
