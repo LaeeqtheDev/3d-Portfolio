@@ -111,7 +111,7 @@ export const experiences = [
     company_name: "InvoiceStock",
     icon: techsolutions,
     iconBg: "#b7e4c7",
-    date: "Jan 2025 - Present",
+    date: "Dec 2023 - Jan 2025",
     points: [
       "Conceptualized and developed InvoiceStock, a SaaS platform for invoicing and stock management tailored for small businesses.",
       "Led the full product lifecycle from ideation and design to deployment and ongoing maintenance.",
@@ -119,58 +119,7 @@ export const experiences = [
       "Defined business strategy, drove growth initiatives, and integrated customer feedback to continuously improve the product.",
     ],
   },
-  {
-    title: "Chief Executive Officer",
-    company_name: "Routelane",
-    icon: rex,
-    iconBg: "#accbe1",
-    date: "Mar 2024 - Present",
-    points: [
-      "Led and oversaw trucking and logistics operations, focusing on strong carrier relationships and operational efficiencies.",
-      "Streamlined dispatching processes and implemented advanced technology solutions.",
-      "Managed financial performance, budgeting, and long-term strategic growth.",
-      "Ensured exceptional client service and compliance with industry regulations.",
-    ],
-  },
-  {
-    title: "Full Stack Engineer",
-    company_name: "Upwork",
-    icon: upwork,
-    iconBg: "#e4a8b7",
-    date: "Oct 2021 - Jan 2025",
-    points: [
-      "Developed end-to-end web applications using React.js, Node.js, Express, and MongoDB.",
-      "Designed RESTful APIs, implemented authentication protocols, and managed database solutions.",
-      "Focused on scalable, secure, and high-performance code delivery.",
-      "Collaborated with cross-functional teams to ensure timely and quality project outcomes.",
-    ],
-  },
-  {
-    title: "React Developer",
-    company_name: "Altura Web Systems",
-    icon: creativeminds,
-    iconBg: "#f8d7da",
-    date: "Aug 2018 - Mar 2021",
-    points: [
-      "Built high-performance, user-friendly web applications using React.js, JavaScript, and TypeScript.",
-      "Translated design prototypes from Figma/Adobe XD into responsive and accessible web pages.",
-      "Optimized website performance, improved load times, and integrated APIs for dynamic user experiences.",
-      "Collaborated with cross-functional teams using Agile methodologies and CI/CD pipelines.",
-    ],
-  },
-  {
-    title: "Frontend Developer",
-    company_name: "Unicorn Production LAB",
-    icon: innovativewebs,
-    iconBg: "#d4edda",
-    date: "Feb 2018 - May 2018",
-    points: [
-      "Developed and maintained interactive user interfaces using HTML, CSS, JavaScript, and React.js.",
-      "Collaborated with designers and backend developers to create seamless web experiences.",
-      "Optimized site performance and ensured cross-browser compatibility.",
-      "Gained hands-on experience in version control and agile development practices.",
-    ],
-  },
+ 
 ];
 
 
