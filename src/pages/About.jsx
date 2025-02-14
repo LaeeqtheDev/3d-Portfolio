@@ -22,7 +22,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-        FullStack Developer based in Lahore, Pk. Embarking on the Code Odyssey: Navigating the Seas of Learning, One Line at a Time
+        Frontend Developer based in Lahore, Pk. Embarking on the Code Odyssey: Navigating the Seas of Learning, One Line at a Time
         </p>
       </div>
 
