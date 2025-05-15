@@ -20,7 +20,7 @@ const Navbar = () => {
           href="https://linktr.ee/syedlaeeqahmed"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black hover:text-white"
+          className="text-black hover:text-orange-500"
         >
           Socials
         </a>
