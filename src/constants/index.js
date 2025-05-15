@@ -101,50 +101,49 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Founder",
+    title: "Freelance Frontend Developer",
+    company_name: "Self-employed / Upwork",
+    icon: upwork,
+    iconBg: "#a8dadc",
+    date: "Jan 2021 – Present",
+    points: [
+      "Built and shipped production-grade web applications for startups and SMEs with a focus on frontend performance, scalability, and clean architecture.",
+      "Specialized in React.js, Next.js, and TypeScript while integrating real-time features, REST APIs, and Firebase/Supabase backends.",
+      "Delivered multiple MVPs under tight deadlines, helping early-stage clients validate and launch products efficiently.",
+      "Handled end-to-end UI development from Figma designs to responsive, SEO-friendly implementations using Tailwind CSS.",
+      "Maintained long-term relationships with clients by providing post-launch support and clear communication throughout project lifecycles."
+    ],
+  },
+  {
+    title: "Founder & Fullstack Developer",
     company_name: "InvoiceStock",
     icon: techsolutions,
     iconBg: "#b7e4c7",
-    date: "Dec 2023 - Present",
+    date: "Dec 2023 – Present",
     points: [
-      "As the founder and developer of InvoiceStock, I built a robust, user-friendly stock and invoice management software designed to streamline business operations for SMEs.",
-      "Full-Stack Development – Designed and developed a scalable web application with intuitive UI/UX, multi-currency support, barcode scanning, and automated invoicing.",
-      "Business & Product Strategy – Led product development, ensuring seamless integration of key features like inventory tracking, analytics reports, customer management, and direct bank integration.",
-      "Hardware Compatibility – Enabled smooth operation with barcode scanners, cash drawers, and other POS hardware, along with free data migration for businesses.",
-      "Client Acquisition & Sales – Personally pitched and onboarded businesses across multiple regions, driving software adoption and business growth.",
-      "Security & Performance Optimization – Implemented secure authentication, data encryption, and performance enhancements to ensure reliability.",
-      "InvoiceStock empowers businesses to manage inventory, finances, and customer relationships effortlessly, making stock and invoice tracking more efficient than ever."
+      "Designed and developed an end-to-end inventory and invoicing SaaS tailored for logistics and retail businesses.",
+      "Implemented key features like customer/supplier management, finance tracking, invoicing, and real-time stock status.",
+      "Integrated barcode scanning, POS hardware support, and multi-currency functionality to meet diverse business needs.",
+      "Built secure authentication, admin roles, and analytics dashboards using modern fullstack technologies.",
+      "Led all product development and client onboarding efforts, including free migration and training."
     ],
   },
   {
-    title: "Founder",
-    company_name: "RouteLane",
+    title: "Founder & Dispatch Operations Lead",
+    company_name: "RouteLane LLC",
     icon: rex,
     iconBg: "#f3d2c1",
-    date: "Feb 2023 - Present",
+    date: "Feb 2023 – Present",
     points: [
-      "As the Founder & CEO of RouteLane LLC, I established a trucking dispatch company focused on providing efficient and cost-effective freight solutions.",
-      "Business Development & Strategy – Built RouteLane from the ground up, developing a streamlined dispatching system to connect carriers with high-paying loads.",
-      "Operations & Carrier Management – Managed end-to-end dispatch operations, negotiating profitable rates with brokers and ensuring smooth coordination between drivers and shippers.",
-      "Client Acquisition & Partnerships – Established relationships with owner-operators, trucking companies, and freight brokers to secure consistent business opportunities.",
-      "Cost Optimization & Efficiency – Implemented strategies to reduce operational costs while maximizing profitability for both drivers and the company.",
-      "Technology & Process Automation – Leveraged software tools to optimize load booking, tracking, and communication for seamless dispatching.",
-      "RouteLane LLC is committed to helping trucking businesses scale by providing reliable dispatching, strategic load planning, and 24/7 support, ensuring maximum earnings for carriers."
-    ],
-  },
-  {
-    title: "React Developer",
-    company_name: "Upwork",
-    icon: upwork,
-    iconBg: "#a8dadc",
-    date: "Jan 2020 - Jan 2025",
-    points: [
-      "Custom Client Solutions: Delivered web applications tailored to client needs using modern tech stacks (React, Next.js, Node.js, MongoDB, Firebase). Consistently maintained a 95% client satisfaction rating.",
-      "Enhanced Security & Performance: Implemented secure authentication protocols (Auth.js, Firebase Auth, JWT) and optimized API integrations, resulting in a 30% improvement in system response times.",
-      "Project Management: Effectively managed full project lifecycles—from requirements and design through testing and deployment—ensuring timely and budget-conscious delivery."
+      "Founded and operated a multi-truck dispatching service specializing in box trucks, reefers, hotshots, and dry vans.",
+      "Managed load booking, broker negotiations, and day-to-day communication with carriers across the U.S.",
+      "Built internal tools and processes to streamline dispatch operations and increase driver satisfaction.",
+      "Developed RouteLane's marketing strategy and successfully onboarded owner-operators with consistent load volume.",
+      "Scaled dispatching revenue by optimizing rate-per-mile (RPM) and reducing empty miles."
     ],
   },
 ];
+
 
 export const socialLinks = [
   {
