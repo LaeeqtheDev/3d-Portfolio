@@ -133,36 +133,20 @@ export const socialLinks = [
 // 🚀 Projects
 export const projects = [
   {
-    iconUrl: pricewise,
-    theme: "btn-back-red",
-    name: "Ecommerce Sanity",
+    iconUrl: techsolutions,
+    theme: "btn-back-purple",
+    name: "InvoiceStock",
     description:
-      "Developed a web application that is a Full Stack E-commerce Online Store with backend CMS, SANITY.IO.",
-    link: "https://github.com/LaeeqtheDev/ecommerce-sanity",
+      "InvoiceStock is a comprehensive stock and invoice management software for SMEs with inventory tracking, analytics, and POS hardware compatibility.",
+    link: "https://invoicestock.vercel.app/",
   },
   {
     iconUrl: threads,
-    theme: "btn-back-green",
-    name: "Full Stack Threads Clone, called GROOVE",
-    description:
-      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-    link: "https://github.com/LaeeqtheDev/Groove",
-  },
-  {
-    iconUrl: car,
-    theme: "btn-back-blue",
-    name: "Car Finding App",
-    description:
-      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
-    link: "https://github.com/LaeeqtheDev/carwheel",
-  },
-  {
-    iconUrl: estate,
     theme: "btn-back-black",
-    name: "Ninja Player one stop for Athletes",
+    name: "Aura",
     description:
-      "Developed a web application for Sports Events, facilitating searches and connecting players with organizers.",
-    link: "https://github.com/LaeeqtheDev/ninjaplayer",
+      "Landing page for a beauty brand — crafted with Next.js and focused on design aesthetics, responsiveness, and performance.",
+    link: "https://auraherbal.vercel.app/",
   },
   {
     iconUrl: estate,
@@ -181,6 +165,30 @@ export const projects = [
     link: "https://routelane.vercel.app/",
   },
   {
+    iconUrl: threads,
+    theme: "btn-back-green",
+    name: "Full Stack Threads Clone, called GROOVE",
+    description:
+      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
+    link: "https://github.com/LaeeqtheDev/Groove",
+  },
+  {
+    iconUrl: estate,
+    theme: "btn-back-black",
+    name: "Ninja Player one stop for Athletes",
+    description:
+      "Developed a web application for Sports Events, facilitating searches and connecting players with organizers.",
+    link: "https://github.com/LaeeqtheDev/ninjaplayer",
+  },
+  {
+    iconUrl: car,
+    theme: "btn-back-blue",
+    name: "Car Finding App",
+    description:
+      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
+    link: "https://github.com/LaeeqtheDev/carwheel",
+  },
+  {
     iconUrl: estate,
     theme: "btn-back-yellow",
     name: "BigHeads - NFT",
@@ -189,19 +197,11 @@ export const projects = [
     link: "https://github.com/LaeeqtheDev/NFT-Website",
   },
   {
-    iconUrl: threads,
-    theme: "btn-back-black",
-    name: "Aura",
+    iconUrl: pricewise,
+    theme: "btn-back-red",
+    name: "Ecommerce Sanity",
     description:
-      "Landing page for a beauty brand — crafted with Next.js and focused on design aesthetics, responsiveness, and performance.",
-    link: "https://auraherbal.vercel.app/",
-  },
-  {
-    iconUrl: techsolutions,
-    theme: "btn-back-purple",
-    name: "InvoiceStock",
-    description:
-      "InvoiceStock is a comprehensive stock and invoice management software for SMEs with inventory tracking, analytics, and POS hardware compatibility.",
-    link: "https://invoicestock.vercel.app/",
+      "Developed a web application that is a Full Stack E-commerce Online Store with backend CMS, SANITY.IO.",
+    link: "https://github.com/LaeeqtheDev/ecommerce-sanity",
   },
 ];
