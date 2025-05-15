@@ -1,10 +1,13 @@
+// Import section (sorted logically)
 import { meta, shopify, starbucks, tesla } from "../assets/images";
-import upwork from "../assets/images/upwork.svg";
 import rex from "../assets/images/rex.png";
+import upwork from "../assets/icons/upwork.svg";
 import techsolutions from "../assets/icons/techsolutions.svg";
 import creativeminds from "../assets/icons/creativeminds.svg";
 import innovativewebs from "../assets/icons/innovativewebs.svg";
+
 import {
+  arrow,
   car,
   contact,
   css,
@@ -31,74 +34,38 @@ import {
   typescript
 } from "../assets/icons";
 
+// 🧠 Skills (Ordered by category)
 export const skills = [
-  {
-    imageUrl: css,
-    name: "CSS",
-    type: "Frontend",
-  },
-  {
-    imageUrl: express,
-    name: "Express",
-    type: "Backend",
-  },
-  {
-    imageUrl: git,
-    name: "Git",
-    type: "Version Control",
-  },
-  {
-    imageUrl: github,
-    name: "GitHub",
-    type: "Version Control",
-  },
-  {
-    imageUrl: html,
-    name: "HTML",
-    type: "Frontend",
-  },
-  {
-    imageUrl: javascript,
-    name: "JavaScript",
-    type: "Frontend",
-  },
-  {
-    imageUrl: mongodb,
-    name: "MongoDB",
-    type: "Database",
-  },
-  {
-    imageUrl: motion,
-    name: "Motion",
-    type: "Animation",
-  },
-  {
-    imageUrl: mui,
-    name: "Material-UI",
-    type: "Frontend",
-  },
-  {
-    imageUrl: nextjs,
-    name: "Next.js",
-    type: "Frontend",
-  },
-  {
-    imageUrl: react,
-    name: "React",
-    type: "Frontend",
-  },
-  {
-    imageUrl: redux,
-    name: "Redux",
-    type: "State Management",
-  },
-  {
-    imageUrl: tailwindcss,
-    name: "Tailwind CSS",
-    type: "Frontend",
-  },
+  // 👉 Frontend
+  { imageUrl: html, name: "HTML", type: "Frontend" },
+  { imageUrl: css, name: "CSS", type: "Frontend" },
+  { imageUrl: sass, name: "Sass", type: "Frontend" },
+  { imageUrl: tailwindcss, name: "Tailwind CSS", type: "Frontend" },
+  { imageUrl: mui, name: "Material-UI", type: "Frontend" },
+  { imageUrl: javascript, name: "JavaScript", type: "Frontend" },
+  { imageUrl: typescript, name: "TypeScript", type: "Frontend" },
+  { imageUrl: react, name: "React", type: "Frontend" },
+  { imageUrl: nextjs, name: "Next.js", type: "Frontend" },
+
+  // 👉 State Management
+  { imageUrl: redux, name: "Redux", type: "State Management" },
+
+  // 👉 Backend
+  { imageUrl: express, name: "Express", type: "Backend" },
+  { imageUrl: nodejs, name: "Node.js", type: "Backend" },
+
+  // 👉 Database
+  { imageUrl: mongodb, name: "MongoDB", type: "Database" },
+
+  // 👉 Animation
+  { imageUrl: motion, name: "Framer Motion", type: "Animation" },
+
+  // 👉 Version Control
+  { imageUrl: git, name: "Git", type: "Version Control" },
+  { imageUrl: github, name: "GitHub", type: "Version Control" },
 ];
 
+// 💼 Experience (LinkedIn/Resume consistent)
 export const experiences = [
   {
     title: "Freelance Frontend Developer",
@@ -111,7 +78,7 @@ export const experiences = [
       "Specialized in React.js, Next.js, and TypeScript while integrating real-time features, REST APIs, and Firebase/Supabase backends.",
       "Delivered multiple MVPs under tight deadlines, helping early-stage clients validate and launch products efficiently.",
       "Handled end-to-end UI development from Figma designs to responsive, SEO-friendly implementations using Tailwind CSS.",
-      "Maintained long-term relationships with clients by providing post-launch support and clear communication throughout project lifecycles."
+      "Maintained long-term relationships with clients by providing post-launch support and clear communication throughout project lifecycles.",
     ],
   },
   {
@@ -125,7 +92,7 @@ export const experiences = [
       "Implemented key features like customer/supplier management, finance tracking, invoicing, and real-time stock status.",
       "Integrated barcode scanning, POS hardware support, and multi-currency functionality to meet diverse business needs.",
       "Built secure authentication, admin roles, and analytics dashboards using modern fullstack technologies.",
-      "Led all product development and client onboarding efforts, including free migration and training."
+      "Led all product development and client onboarding efforts, including free migration and training.",
     ],
   },
   {
@@ -139,93 +106,102 @@ export const experiences = [
       "Managed load booking, broker negotiations, and day-to-day communication with carriers across the U.S.",
       "Built internal tools and processes to streamline dispatch operations and increase driver satisfaction.",
       "Developed RouteLane's marketing strategy and successfully onboarded owner-operators with consistent load volume.",
-      "Scaled dispatching revenue by optimizing rate-per-mile (RPM) and reducing empty miles."
+      "Scaled dispatching revenue by optimizing rate-per-mile (RPM) and reducing empty miles.",
     ],
   },
 ];
 
-
+// 🌐 Social Links
 export const socialLinks = [
   {
-    name: 'Contact',
+    name: "Contact",
     iconUrl: contact,
-    link: '/contact',
+    link: "/contact",
   },
   {
-    name: 'GitHub',
+    name: "GitHub",
     iconUrl: github,
-    link: 'https://github.com/YourGitHubUsername',
+    link: "https://github.com/LaeeqtheDev",
   },
   {
-    name: 'LinkedIn',
+    name: "LinkedIn",
     iconUrl: linkedin,
-    link: 'https://www.linkedin.com/in/YourLinkedInUsername',
-  }
+    link: "https://www.linkedin.com/in/syed-laeeq-ahmed/",
+  },
 ];
 
+// 🚀 Projects
 export const projects = [
   {
     iconUrl: pricewise,
-    theme: 'btn-back-red',
-    name: 'Ecommerce Sanity',
-    description: 'Developed a web application that is a Full Stack E-commerce Online Store with backend CMS, SANITY.IO.',
-    link: 'https://github.com/LaeeqtheDev/ecommerce-sanity',
+    theme: "btn-back-red",
+    name: "Ecommerce Sanity",
+    description:
+      "Developed a web application that is a Full Stack E-commerce Online Store with backend CMS, SANITY.IO.",
+    link: "https://github.com/LaeeqtheDev/ecommerce-sanity",
   },
   {
     iconUrl: threads,
-    theme: 'btn-back-green',
-    name: 'Full Stack Threads Clone, called GROOVE',
-    description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-    link: 'https://github.com/LaeeqtheDev/Groove',
+    theme: "btn-back-green",
+    name: "Full Stack Threads Clone, called GROOVE",
+    description:
+      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
+    link: "https://github.com/LaeeqtheDev/Groove",
   },
   {
     iconUrl: car,
-    theme: 'btn-back-blue',
-    name: 'Car Finding App',
-    description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-    link: 'https://github.com/LaeeqtheDev/carwheel',
+    theme: "btn-back-blue",
+    name: "Car Finding App",
+    description:
+      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
+    link: "https://github.com/LaeeqtheDev/carwheel",
   },
   {
     iconUrl: estate,
-    theme: 'btn-back-black',
-    name: 'Ninja Player one stop for Athletes',
-    description: 'Developed a web application for Sports Events, facilitating searches and connecting players with organizers.',
-    link: 'https://github.com/LaeeqtheDev/ninjaplayer',
+    theme: "btn-back-black",
+    name: "Ninja Player one stop for Athletes",
+    description:
+      "Developed a web application for Sports Events, facilitating searches and connecting players with organizers.",
+    link: "https://github.com/LaeeqtheDev/ninjaplayer",
   },
   {
     iconUrl: estate,
-    theme: 'btn-back-green',
-    name: 'LOCOPRO',
-    description: 'Locopro is a state-of-the-art real estate platform developed using the MERN stack, featuring comprehensive property listings, an AI chatbot for personalized assistance, and an intuitive user dashboard. Built entirely by a full-stack web developer, Locopro ensures a seamless and efficient property search experience.',
-    link: 'https://locopro-client.vercel.app/',
+    theme: "btn-back-green",
+    name: "LOCOPRO",
+    description:
+      "Locopro is a state-of-the-art real estate platform developed using the MERN stack, featuring comprehensive property listings, an AI chatbot, and an intuitive user dashboard.",
+    link: "https://locopro-client.vercel.app/",
   },
   {
     iconUrl: car,
-    theme: 'btn-back-red',
-    name: 'Routelane',
-    description: 'Routelane leverages Next.js to deliver a streamlined truck dispatching solution. Featuring real-time route optimization, dispatch management tools, and a responsive interface, Routelane enhances efficiency in logistics. Developed by a skilled full-stack web developer, it ensures seamless operations for transport businesses.',
-    link: 'https://routelane.vercel.app/',
+    theme: "btn-back-red",
+    name: "Routelane",
+    description:
+      "Routelane leverages Next.js to deliver a streamlined truck dispatching solution with route optimization, dispatch tools, and responsive UI.",
+    link: "https://routelane.vercel.app/",
   },
   {
     iconUrl: estate,
-    theme: 'btn-back-yellow',
-    name: 'BigHeads -NFT',
-    description: 'App that leverages NFT to automatically generate AND let users buy.',
-    link: 'https://github.com/LaeeqtheDev/NFT-Website',
+    theme: "btn-back-yellow",
+    name: "BigHeads - NFT",
+    description:
+      "App that leverages NFT to automatically generate art and let users mint/buy collectibles.",
+    link: "https://github.com/LaeeqtheDev/NFT-Website",
   },
   {
     iconUrl: threads,
-    theme: 'btn-back-black',
-    name: 'Aura',
-    description: 'Crafted with Next.js, our landing page for beauty products seamlessly blends elegant design with high-performance features',
-    link: 'https://auraherbal.vercel.app/',
+    theme: "btn-back-black",
+    name: "Aura",
+    description:
+      "Landing page for a beauty brand — crafted with Next.js and focused on design aesthetics, responsiveness, and performance.",
+    link: "https://auraherbal.vercel.app/",
   },
-  // Added new project for InvoiceStock
   {
     iconUrl: techsolutions,
-    theme: 'btn-back-purple',
-    name: 'InvoiceStock',
-    description: 'InvoiceStock is a comprehensive stock and invoice management software designed for SMEs, featuring inventory tracking, multi-currency support, barcode scanning, and automated invoicing.',
-    link: 'https://invoicestock.vercel.app/',
-  }
+    theme: "btn-back-purple",
+    name: "InvoiceStock",
+    description:
+      "InvoiceStock is a comprehensive stock and invoice management software for SMEs with inventory tracking, analytics, and POS hardware compatibility.",
+    link: "https://invoicestock.vercel.app/",
+  },
 ];
