@@ -22,7 +22,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           className="text-black hover:text-blue-500"
         >
-          Links
+          Socials
         </a>
       </nav>
     </header>
