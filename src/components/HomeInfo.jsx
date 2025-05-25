@@ -9,7 +9,7 @@ const HomeInfo = ({ currentStage }) => {
         <span className='font-semibold mx-2 text-white'>Laeeq</span>
         👋
         <br />
-        A fullstack developer from Lahore, PK — building with React, Next.js, Node, MongoDB & React Native.
+        A Frontend Focused Fullstack Developer from Lahore, PK — building with React, Next.js, Node, MongoDB & React Native.
       </h1>
     );
 
