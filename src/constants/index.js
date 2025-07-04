@@ -68,48 +68,48 @@ export const skills = [
 // 💼 Experience (LinkedIn/Resume consistent)
 export const experiences = [
   {
-    title: "Freelance Frontend Developer",
-    company_name: "Self-employed / Upwork",
+    title: "Freelance React Developer",
+    company_name: "Upwork",
     icon: upwork,
     iconBg: "#a8dadc",
-    date: "Jan 2021 – Present",
+    date: "Jan 2021 – Mar 2023",
     points: [
-      "Built and shipped production-grade web applications for startups and SMEs with a focus on frontend performance, scalability, and clean architecture.",
-      "Specialized in React.js, Next.js, and TypeScript while integrating real-time features, REST APIs, and Firebase/Supabase backends.",
-      "Delivered multiple MVPs under tight deadlines, helping early-stage clients validate and launch products efficiently.",
-      "Handled end-to-end UI development from Figma designs to responsive, SEO-friendly implementations using Tailwind CSS.",
-      "Maintained long-term relationships with clients by providing post-launch support and clear communication throughout project lifecycles.",
+      "Delivered 10+ production-grade web apps for clients across logistics, fintech, and e-commerce domains.",
+      "Scoped, built, and deployed fullstack apps using React.js, Next.js, Node.js, Firebase, and MongoDB.",
+      "Implemented features like Stripe payments, dashboards, protected media, and RBAC authentication.",
+      "Collaborated with clients via Upwork chat, email, and Trello; delivered clean, handoff-ready codebases.",
+      "Maintained 90%+ client satisfaction by meeting timelines and providing consistent post-launch support.",
     ],
   },
   {
-    title: "Founder & Fullstack Developer",
+    title: "Frontend Developer",
     company_name: "InvoiceStock",
     icon: techsolutions,
     iconBg: "#b7e4c7",
     date: "Dec 2023 – Present",
     points: [
-      "Designed and developed an end-to-end inventory and invoicing SaaS tailored for logistics and retail businesses.",
-      "Implemented key features like customer/supplier management, finance tracking, invoicing, and real-time stock status.",
-      "Integrated barcode scanning, POS hardware support, and multi-currency functionality to meet diverse business needs.",
-      "Built secure authentication, admin roles, and analytics dashboards using modern fullstack technologies.",
-      "Led all product development and client onboarding efforts, including free migration and training.",
+      "Built and scaled the frontend for a full-stack invoicing and inventory SaaS using React.js and Firebase.",
+      "Developed production-ready features including barcode scanning, multi-currency invoicing, and analytics dashboards.",
+      "Implemented CI/CD workflows with GitHub and Vercel, and wrote unit tests using Jest for key components.",
+      "Collaborated with QA and backend teams in agile sprints to deliver smooth user experiences.",
+      "Created documentation and reusable components to support future scale and developer onboarding.",
     ],
   },
   {
-    title: "Founder & Dispatch Operations Lead",
+    title: "Frontend Developer",
     company_name: "RouteLane LLC",
     icon: rex,
     iconBg: "#f3d2c1",
-    date: "Feb 2023 – Present",
+    date: "Mar 2023 – Dec 2023",
     points: [
-      "Founded and operated a multi-truck dispatching service specializing in box trucks, reefers, hotshots, and dry vans.",
-      "Managed load booking, broker negotiations, and day-to-day communication with carriers across the U.S.",
-      "Built internal tools and processes to streamline dispatch operations and increase driver satisfaction.",
-      "Developed RouteLane's marketing strategy and successfully onboarded owner-operators with consistent load volume.",
-      "Scaled dispatching revenue by optimizing rate-per-mile (RPM) and reducing empty miles.",
+      "Developed and maintained frontend features for a real-time trucking dispatch platform using React and Firebase.",
+      "Optimized UI for field usability, implemented real-time tracking with Firebase listeners, and improved mobile responsiveness.",
+      "Collaborated with backend and operations teams to integrate APIs and resolve user-reported issues.",
+      "Participated in sprint planning, QA testing, and component reusability improvements across the platform.",
     ],
   },
 ];
+
 
 // 🌐 Social Links
 export const socialLinks = [
