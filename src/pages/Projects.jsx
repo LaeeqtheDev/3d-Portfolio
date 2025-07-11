@@ -14,13 +14,14 @@ const Projects = () => {
         </span>
       </h1>
 
-      <p className='text-slate-500 mt-2 leading-relaxed'>
-        I've embarked on numerous projects throughout the years, but these are
-        the ones I hold closest to my heart. Many of them are open-source, so if
-        you come across something that piques your interest, feel free to
-        explore the codebase and contribute your ideas for further enhancements.
-        Your collaboration is highly valued!
-      </p>
+  <p className='text-slate-500 mt-2 leading-relaxed'>
+  Here are a few real-world projects I've designed, developed, and deployed — from SaaS platforms and subscription tools to eCommerce storefronts and mobile apps. 
+  Each project demonstrates a focus on clean UI, real-time features, and scalable frontend architecture.
+</p>
+<p className='text-slate-500 mt-2 leading-relaxed'>
+  Most of these projects are built with TypeScript, React/Next.js, and Firebase, and include features like role-based access, Stripe integration, dashboards, and CMS-driven content.
+</p>
+
 
       <div className='flex flex-wrap my-20 gap-16'>
         {projects.map((project) => (
