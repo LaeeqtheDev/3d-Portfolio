@@ -212,7 +212,7 @@ export const projects = [
   },
   {
     iconUrl: summiz,
-    theme: "btn-back-purple",
+    theme: "btn-back-black",
     name: "Healthcare",
     description:
       "A full-featured medical appointment platform with patient management, Twilio SMS, and admin dashboards. Built with Next.js, Shadcn, and TypeScript.",
