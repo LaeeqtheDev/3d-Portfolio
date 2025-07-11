@@ -110,7 +110,7 @@ export const experiences = [
   },
   {
     title: "Senior Salesforce Data Administrator",
-    company_name: "Private Company",
+    company_name: "Private Contract [NDA]",
     icon: summiz, // add relevant icon here
     iconBg: "#dee2ff",
     date: "Jun 2025 – Present",
