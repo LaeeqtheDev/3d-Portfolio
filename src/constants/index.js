@@ -151,71 +151,87 @@ export const projects = [
     theme: "btn-back-purple",
     name: "InvoiceStock",
     description:
-      "InvoiceStock is a comprehensive stock and invoice management software for SMEs with inventory tracking, analytics, and POS hardware compatibility.",
-    link: "https://invoicestock.vercel.app/",
+      "A full-stack invoicing and inventory SaaS for small businesses — features include barcode scanning, multi-currency invoicing, role-based access, and real-time dashboards.",
+    link: "https://github.com/LaeeqtheDev/invoicestock",
   },
   {
     iconUrl: threads,
-    theme: "btn-back-black",
-    name: "Aura",
-    description:
-      "Landing page for a beauty brand — crafted with Next.js and focused on design aesthetics, responsiveness, and performance.",
-    link: "https://auraherbal.vercel.app/",
-  },
-  {
-    iconUrl: estate,
-    theme: "btn-back-green",
-    name: "LOCOPRO",
-    description:
-      "Locopro is a state-of-the-art real estate platform developed using the MERN stack, featuring comprehensive property listings, an AI chatbot, and an intuitive user dashboard.",
-    link: "https://locopro-client.vercel.app/",
-  },
-  {
-    iconUrl: car,
-    theme: "btn-back-red",
-    name: "Routelane",
-    description:
-      "Routelane leverages Next.js to deliver a streamlined truck dispatching solution with route optimization, dispatch tools, and responsive UI.",
-    link: "https://routelane.vercel.app/",
-  },
-  {
-    iconUrl: threads,
-    theme: "btn-back-green",
-    name: "Full Stack Threads Clone, called GROOVE",
-    description:
-      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-    link: "https://github.com/LaeeqtheDev/Groove",
-  },
-  {
-    iconUrl: estate,
-    theme: "btn-back-black",
-    name: "Ninja Player one stop for Athletes",
-    description:
-      "Developed a web application for Sports Events, facilitating searches and connecting players with organizers.",
-    link: "https://github.com/LaeeqtheDev/ninjaplayer",
-  },
-  {
-    iconUrl: car,
     theme: "btn-back-blue",
-    name: "Car Finding App",
+    name: "3D Portfolio",
     description:
-      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
-    link: "https://github.com/LaeeqtheDev/carwheel",
+      "A modern 3D portfolio built with React Three Fiber and Three.js — delivers an immersive personal branding experience using WebGL and GSAP animations.",
+    link: "https://github.com/LaeeqtheDev/3d-Portfolio",
   },
   {
-    iconUrl: estate,
+    iconUrl: summiz,
     theme: "btn-back-yellow",
-    name: "BigHeads - NFT",
+    name: "Minecraft Grid Playground",
     description:
-      "App that leverages NFT to automatically generate art and let users mint/buy collectibles.",
-    link: "https://github.com/LaeeqtheDev/NFT-Website",
+      "A grid-based JavaScript playground inspired by Minecraft. Built with vanilla JS and DOM manipulation to simulate interactive building logic.",
+    link: "https://github.com/LaeeqtheDev/minecraft",
+  },
+  {
+    iconUrl: threads,
+    theme: "btn-back-green",
+    name: "Groove (Threads Clone)",
+    description:
+      "A full-stack threaded discussion platform inspired by Threads — allows users to create posts, reply to threads, and follow other creators. Built with Firebase, Clerk, and Next.js.",
+    link: "https://github.com/LaeeqtheDev/Groove",
   },
   {
     iconUrl: pricewise,
     theme: "btn-back-red",
     name: "Ecommerce Sanity",
     description:
-      "Developed a web application that is a Full Stack E-commerce Online Store with backend CMS, SANITY.IO.",
+      "A minimalist eCommerce storefront powered by Sanity CMS. Supports dynamic product listings, custom content, and client-side state with Redux Toolkit.",
     link: "https://github.com/LaeeqtheDev/ecommerce-sanity",
+  },
+  {
+    iconUrl: car,
+    theme: "btn-back-blue",
+    name: "JobFinder App",
+    description:
+      "Mobile-first job listing app built with React Native and Expo. Uses RapidAPI’s JSearch to allow real-time filtering, saving, and applying to jobs.",
+    link: "https://github.com/LaeeqtheDev/jobfinder-react-native",
+  },
+  {
+    iconUrl: estate,
+    theme: "btn-back-green",
+    name: "LOCOPRO",
+    description:
+      "A real estate listing platform with Firebase login, listing filters, admin panel, and AI chatbot assistant. Built with Next.js and TailwindCSS.",
+    link: "https://github.com/LaeeqtheDev/locopro-client",
+  },
+  {
+    iconUrl: snapgram,
+    theme: "btn-back-black",
+    name: "Subme",
+    description:
+      "A creator subscription platform with tiered access (`VIP`, `Crew`, `Backstage`). Built with Clerk, Sanity, and Next.js. Includes commenting, post visibility, and role logic.",
+    link: "https://github.com/LaeeqtheDev/Subme",
+  },
+  {
+    iconUrl: summiz,
+    theme: "btn-back-purple",
+    name: "Healthcare",
+    description:
+      "A full-featured medical appointment platform with patient management, Twilio SMS, and admin dashboards. Built with Next.js, Shadcn, and TypeScript.",
+    link: "https://github.com/LaeeqtheDev/healthcare",
+  },
+  {
+    iconUrl: threads,
+    theme: "btn-back-yellow",
+    name: "Twave",
+    description:
+      "A modern eCommerce storefront powered by Payload CMS. Supports custom product pages, dynamic CMS-driven content, and a scalable frontend built with TypeScript.",
+    link: "https://github.com/LaeeqtheDev/twave",
+  },
+  {
+    iconUrl: car,
+    theme: "btn-back-red",
+    name: "Ryde",
+    description:
+      "A full-stack cross-platform ride-booking app (like Uber) built with React Native, Stripe, and PostgreSQL. Includes real-time driver tracking and in-app chat.",
+    link: "https://github.com/LaeeqtheDev/Ryde",
   },
 ];
