@@ -22,7 +22,8 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-        Frontend Developer based in Lahore, Pk. Embarking on the Code Odyssey: Navigating the Seas of Learning, One Line at a Time
+  I’m a Frontend Developer based in Lahore, Pakistan with 4+ years of experience building SaaS products, real-time platforms, and scalable web apps. 
+  My work focuses on delivering clean UI/UX, component-driven systems, and production-ready tools using React, Next.js, and Javascript.
         </p>
       </div>
 
@@ -49,9 +50,11 @@ const About = () => {
         <h3 className='subhead-text'>Work Experience.</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>
-            I've worked with all sorts of companies, leveling up my skills and
-            teaming up with smart people. Here's the rundown:
+          I’ve collaborated with startups, remote clients, and cross-functional teams to build software that solves real business problems — from ride-hailing apps to subscription platforms and inventory tools.
           </p>
+          <p>
+  Whether it’s integrating Stripe and Clerk for secure payments and auth, or deploying full-stack apps with Firebase and Vercel, I aim to ship code that’s clean, fast, and reliable Here are few of the projects.
+</p>
         </div>
 
         <div className='mt-12 flex'>
