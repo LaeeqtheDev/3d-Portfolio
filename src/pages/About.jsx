@@ -22,8 +22,15 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-  I’m a Frontend Developer based in Lahore, Pakistan with 4+ years of experience building SaaS products, real-time platforms, and scalable web apps. 
-  My work focuses on delivering clean UI/UX, component-driven systems, and production-ready tools using React, Next.js, and Javascript.
+
+  I’m a Full Stack JavaScript Developer based in Lahore, Pakistan with 5+ years of experience 
+  building SaaS products, real-time platforms, and scalable web apps. My core expertise lies in 
+  React, Next.js, Node.js, and TypeScript, with a strong focus on delivering clean UI/UX and 
+  production-ready systems. I also bring 2 years of hands-on experience in AI/ML, integrating 
+  NLP and computer vision models into modern web applications to build intelligent, data-driven 
+  solutions.
+
+
         </p>
       </div>
 
