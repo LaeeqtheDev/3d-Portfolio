@@ -95,19 +95,20 @@ export const experiences = [
     ],
   },
   {
-    title: "Project Lead Developer",
-    company_name: "InvoiceStock",
-    icon: techsolutions, // your InvoiceStock icon here
-    iconBg: "#b7e4c7",
-    date: "Dec 2023 – Present",
-    points: [
-      "Led frontend development for a full-stack invoicing and inventory SaaS using React, Next.js, Firebase, and Vercel.",
-      "Shipped multi-currency invoicing, barcode scanning, inventory tracking, and role-based access control.",
-      "Integrated CI/CD workflows with GitHub + Vercel for auto-deployments and staging previews.",
-      "Wrote unit tests using Jest to ensure stable feature releases and regression safety.",
-      "Contributed product documentation and component architecture for scale and dev onboarding.",
-    ],
-  },
+  title: "AI/ML Engineer",
+  company_name: "InvoiceStock",
+  icon: techsolutions, // reuse your InvoiceStock icon
+  iconBg: "#b7e4c7",
+  date: "Jul 2023 – Jul 2025",
+  points: [
+    "Designed and delivered end-to-end ML solutions including data ingestion, feature engineering, model training, deployment, and monitoring.",
+    "Built NLP pipelines (text cleaning, tokenization, transformer fine-tuning) for summarization and intent classification in customer support workflows.",
+    "Developed computer vision modules in PyTorch for automated document parsing and barcode extraction; integrated with React/Next.js frontends via REST APIs.",
+    "Containerized inference with Docker + FastAPI, deployed scalable endpoints on AWS (ECS/Lambda), and monitored performance with Prometheus/CloudWatch.",
+    "Implemented MLOps practices: dataset versioning, MLflow model registry, CI/CD for retraining, and automated evaluation pipelines.",
+    "Collaborated with product owners to translate KPIs into measurable model objectives (precision/recall thresholds, latency SLOs), delivering production-ready AI features that reduced manual workload.",
+  ],
+},
   {
     title: "Senior Salesforce Data Administrator",
     company_name: "Private Contract [NDA]",
