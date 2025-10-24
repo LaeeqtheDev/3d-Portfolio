@@ -61,7 +61,7 @@ Currently, I’m pushing my limits in frontend architecture, system design, and 
   I’ve worked with startups, remote teams, and individual clients to design and build modern web apps that actually solve problems — from real-time logistics platforms to SaaS dashboards and client portals.
 </p>
 <p>
-  Whether it’s building secure authentication with Clerk and Firebase, integrating payments with Stripe, or deploying full-stack apps on Vercel, I focus on delivering clean, performant, and production-ready code. Here are a few of my recent projects.
+  Whether it’s building secure authentication with Clerk and Firebase, integrating payments with Stripe, or deploying full-stack apps on Vercel, I focus on delivering clean, performant, and production-ready code. Here are a few of my recent work experience.
 </p>
 
         </div>
