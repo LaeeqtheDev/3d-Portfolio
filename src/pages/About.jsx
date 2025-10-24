@@ -23,12 +23,13 @@ const About = () => {
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
 
-  I’m a Full Stack JavaScript Developer based in Lahore, Pakistan with 5+ years of experience 
-  building SaaS products, real-time platforms, and scalable web apps. My core expertise lies in 
-  React, Next.js, Node.js, and TypeScript, with a strong focus on delivering clean UI/UX and 
-  production-ready systems. I also bring 2 years of hands-on experience in AI/ML, integrating 
-  NLP and computer vision models into modern web applications to build intelligent, data-driven 
-  solutions.
+ I’m Syed Laeeq Ahmed, a Full Stack JavaScript Developer from Lahore, Pakistan, with over 4 years of hands-on experience building scalable, production-ready web applications.
+
+I specialize in React, Next.js, Node.js, and TypeScript, and I care deeply about writing clean, maintainable, and high-performing code. My focus is always on UI/UX precision, code efficiency, and real-world problem-solving — not just making things work, but making them feel right.
+
+I’ve delivered end-to-end products from SaaS dashboards to real-time platforms, integrating tools like Firebase, MongoDB, Clerk, and Stripe. I enjoy taking projects from concept to deployment, making sure every build is optimized, stable, and well-structured.
+
+Currently, I’m pushing my limits in frontend architecture, system design, and performance optimization, aiming to craft interfaces that not only look great but scale effortlessly.
 
 
         </p>
@@ -56,12 +57,13 @@ const About = () => {
       <div className='py-16'>
         <h3 className='subhead-text'>Work Experience.</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-          <p>
-          I’ve collaborated with startups, remote clients, and cross-functional teams to build software that solves real business problems — from ride-hailing apps to subscription platforms and inventory tools.
-          </p>
-          <p>
-  Whether it’s integrating Stripe and Clerk for secure payments and auth, or deploying full-stack apps with Firebase and Vercel, I aim to ship code that’s clean, fast, and reliable Here are few of the projects.
+ <p>
+  I’ve worked with startups, remote teams, and individual clients to design and build modern web apps that actually solve problems — from real-time logistics platforms to SaaS dashboards and client portals.
 </p>
+<p>
+  Whether it’s building secure authentication with Clerk and Firebase, integrating payments with Stripe, or deploying full-stack apps on Vercel, I focus on delivering clean, performant, and production-ready code. Here are a few of my recent projects.
+</p>
+
         </div>
 
         <div className='mt-12 flex'>
