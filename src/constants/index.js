@@ -227,6 +227,14 @@ export const projects = [
       "A modern eCommerce storefront powered by Payload CMS. Supports custom product pages, dynamic CMS-driven content, and a scalable frontend built with TypeScript.",
     link: "https://github.com/LaeeqtheDev/twave",
   },
+    {
+    iconUrl: motion,
+    theme: "btn-back-purple",
+    name: "Axen 3D",
+    description:
+      "A visually immersive 3D portfolio experience built with Next.js, React, and GSAP. Features fluid scroll-based animations, layered depth effects, and seamless motion transitions for high-impact storytelling.",
+    link: "https://axen-gsap.vercel.app/",
+  },
   {
     iconUrl: car,
     theme: "btn-back-red",
