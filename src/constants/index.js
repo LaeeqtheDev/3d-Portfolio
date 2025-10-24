@@ -95,7 +95,7 @@ export const experiences = [
     ],
   },
   {
-  title: "AI/ML Engineer",
+  title: "Lead Product Developer",
   company_name: "InvoiceStock",
   icon: techsolutions, // reuse your InvoiceStock icon
   iconBg: "#b7e4c7",
