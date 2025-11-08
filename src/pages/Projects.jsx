@@ -14,13 +14,15 @@ const Projects = () => {
         </span>
       </h1>
 
-  <p className='text-slate-500 mt-2 leading-relaxed'>
-  Here are a few real-world projects I've designed, developed, and deployed — from SaaS platforms and subscription tools to eCommerce storefronts and mobile apps. 
-  Each project demonstrates a focus on clean UI, real-time features, and scalable frontend architecture.
-</p>
 <p className='text-slate-500 mt-2 leading-relaxed'>
-  Most of these projects are built with TypeScript, React/Next.js, and Firebase, and include features like role-based access, Stripe integration, dashboards, and CMS-driven content.
+  These are full-stack, production-ready projects I’ve designed, developed, and deployed — covering SaaS dashboards, subscription platforms, eCommerce storefronts, and mobile apps. Every project demonstrates clean UI, robust backend, real-time features, and scalable architecture.
 </p>
+
+<p className='text-slate-500 mt-2 leading-relaxed'>
+  Built with TypeScript, React/Next.js, Node.js, Firebase, and MongoDB, these apps include secure authentication, role-based access, Stripe integration, CMS-driven content, and optimized deployment pipelines.
+</p>
+
+
 
 
       <div className='flex flex-wrap my-20 gap-16'>
