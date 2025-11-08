@@ -1,9 +1,5 @@
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-
-import CTA from '../components/CTA'
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import CTA from '../components/CTA';
 import { experiences, skills } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
@@ -14,24 +10,20 @@ const About = () => {
       <h1 className='head-text'>
         Hello, I'm{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
-          {" "}
-         Laeeq
+          Syed Laeeq Ahmed
         </span>{" "}
         👋
       </h1>
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-
- I’m Syed Laeeq Ahmed, a Full Stack JavaScript Developer from Lahore, Pakistan, with over 4 years of hands-on experience building scalable, production-ready web applications.
-
-I specialize in React, Next.js, Node.js, and TypeScript, and I care deeply about writing clean, maintainable, and high-performing code. My focus is always on UI/UX precision, code efficiency, and real-world problem-solving — not just making things work, but making them feel right.
-
-I’ve delivered end-to-end products from SaaS dashboards to real-time platforms, integrating tools like Firebase, MongoDB, Clerk, and Stripe. I enjoy taking projects from concept to deployment, making sure every build is optimized, stable, and well-structured.
-
-Currently, I’m pushing my limits in frontend architecture, system design, and performance optimization, aiming to craft interfaces that not only look great but scale effortlessly.
-
-
+          I’m a Full-Stack JavaScript Developer from Lahore, Pakistan, with 5+ years of experience delivering scalable, production-ready web applications. My expertise spans React, Next.js, Node.js, and TypeScript, with a strong focus on writing clean, maintainable, and high-performing code.
+        </p>
+        <p>
+          I’ve built end-to-end products for startups, remote teams, and clients — from SaaS dashboards and real-time platforms to B2B web apps. My work often involves integrating Firebase, MongoDB, Clerk, Stripe, and other modern tools to deliver fully functional, reliable, and user-friendly applications.
+        </p>
+        <p>
+          Beyond coding, I care about architecture, performance optimization, and UI/UX precision. I aim to create applications that not only work flawlessly but scale effortlessly and provide a seamless user experience.
         </p>
       </div>
 
@@ -55,20 +47,19 @@ Currently, I’m pushing my limits in frontend architecture, system design, and 
       </div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience.</h3>
+        <h3 className='subhead-text'>Work Experience</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
- <p>
-  I’ve worked with startups, remote teams, and individual clients to design and build modern web apps that actually solve problems — from real-time logistics platforms to SaaS dashboards and client portals.
-</p>
-<p>
-  Whether it’s building secure authentication with Clerk and Firebase, integrating payments with Stripe, or deploying full-stack apps on Vercel, I focus on delivering clean, performant, and production-ready code. Here are a few of my recent work experience.
-</p>
-
+          <p>
+            I’ve collaborated with startups, remote teams, and individual clients to build modern web applications that solve real problems — from real-time logistics platforms to full-featured SaaS dashboards and B2B portals.
+          </p>
+          <p>
+            My focus is on building clean, performant, and production-ready code. I handle secure authentication with Clerk/Firebase, integrate payments with Stripe, and deploy full-stack applications on Vercel. Here’s a snapshot of my recent professional experience:
+          </p>
         </div>
 
         <div className='mt-12 flex'>
           <VerticalTimeline>
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
               <VerticalTimelineElement
                 key={experience.company_name}
                 date={experience.date}
