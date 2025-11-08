@@ -5,21 +5,19 @@ const HomeInfo = ({ currentStage }) => {
   if (currentStage === 1)
     return (
       <h1 className='sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>
-  Hi, I'm
-  <span className='font-semibold mx-2 text-white'>Laeeq</span>
-  — a frontend-focused fullstack engineer from Lahore, PK.<br />
-  I build performant web applications using React, Next.js, Node.js, and React Native.
-</h1>
-      
+        Hi, I'm
+        <span className='font-semibold mx-2 text-white'>Syed Laeeq Ahmed</span>
+        — a Full-Stack JavaScript Engineer from Lahore, PK.<br />
+        I build scalable, performant SaaS and B2B web applications using React, Next.js, Node.js, and React Native.
+      </h1>
     );
 
   if (currentStage === 2) {
     return (
       <div className='info-box'>
-       <p className='font-medium sm:text-xl text-center'>
-  I’m a self-driven engineer with 4+ years of hands-on experience. I’ve learned by building, shipping, and scaling real-world applications.
-</p>
-
+        <p className='font-medium sm:text-xl text-center'>
+          I’m a self-driven engineer with 5+ years of experience delivering production-grade applications. I specialize in turning complex workflows into fast, maintainable, and user-friendly software.
+        </p>
 
         <Link to='/about' className='neo-brutalism-white neo-btn'>
           Learn more
@@ -32,10 +30,9 @@ const HomeInfo = ({ currentStage }) => {
   if (currentStage === 3) {
     return (
       <div className='info-box'>
-       <p className='font-medium text-center sm:text-xl'>
-  I specialize in building end-to-end products — from responsive UI to backend integration — with an emphasis on code quality, scalability, and maintainability.
-</p>
-
+        <p className='font-medium sm:text-xl text-center'>
+          I focus on building end-to-end solutions — from responsive UI to backend integration — ensuring clean architecture, scalability, and a smooth user experience.
+        </p>
 
         <Link to='/projects' className='neo-brutalism-white neo-btn'>
           Visit my portfolio
@@ -48,10 +45,9 @@ const HomeInfo = ({ currentStage }) => {
   if (currentStage === 4) {
     return (
       <div className='info-box'>
-      <p className='font-medium sm:text-xl text-center'>
-  Looking to collaborate on a complex frontend system or scale a production-ready app? Let’s connect — I’m open to serious technical challenges.
-</p>
-
+        <p className='font-medium sm:text-xl text-center'>
+          I’m open to challenging frontend or full-stack projects that push the boundaries of scale and performance. Let’s build software that drives real business impact.
+        </p>
 
         <Link to='/contact' className='neo-brutalism-white neo-btn'>
           Let's talk
