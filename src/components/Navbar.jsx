@@ -2,26 +2,17 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <header className="header flex flex-col md:flex-row items-center justify-between p-4 bg-white shadow-md">
-      <NavLink
-        to="/"
-        className="p-2 rounded-lg bg-white flex items-center justify-center font-bold shadow-md mb-3 md:mb-0"
-      >
+    <header className="header">
+      <NavLink to="/" className="p-2 rounded-lg bg-white items-center justify-center flex font-bold shadow-md">
         <p className="blue-gradient_text">LaeeqtheDev</p>
       </NavLink>
 
-      <nav className="flex flex-col md:flex-row text-lg gap-4 md:gap-7 font-medium items-center">
-        <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? "text-blue-500" : "text-black")}
-        >
+      <nav className="flex text-lg gap-7 font-medium">
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
           About
         </NavLink>
 
-        <NavLink
-          to="/projects"
-          className={({ isActive }) => (isActive ? "text-blue-500" : "text-black")}
-        >
+        <NavLink to="/projects" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
           Projects
         </NavLink>
 
@@ -34,17 +25,11 @@ const Navbar = () => {
           Socials
         </a>
 
-        <a
-          href="https://drive.google.com/uc?export=download&id=1p4qzeXogaF4kyZhsQjZlMfP_3iqKLgl_"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black hover:text-green-500"
-        >
-          Resume
-        </a>
       </nav>
     </header>
   );
 };
 
 export default Navbar;
+
+
