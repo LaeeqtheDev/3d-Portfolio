@@ -24,6 +24,15 @@ const Navbar = () => {
         >
           Socials
         </a>
+
+        <a
+          href="https://drive.google.com/uc?export=download&id=1p4qzeXogaF4kyZhsQjZlMfP_3iqKLgl_"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black hover:text-green-500"
+        >
+          Resume
+        </a>
       </nav>
     </header>
   );
