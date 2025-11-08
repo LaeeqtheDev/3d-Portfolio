@@ -69,63 +69,62 @@ export const skills = [
 // 💼 Experience (LinkedIn/Resume consistent)
 export const experiences = [
   {
-    title: "Freelance React Developer",
+    title: "Full Stack Engineer",
+    company_name: "Nexora Systems",
+    icon: techsolutions,
+    iconBg: "#b7e4c7",
+    date: "Jul 2024 – Oct 2025",
+    points: [
+      "Led cross-functional engineering across Nexora’s flagship B2B SaaS platform.",
+      "Re-architected Next.js + Node.js microservices, reducing CI build times by 45%.",
+      "Deployed GraphQL APIs with caching, lowering latency by 25–30%.",
+      "Built secure role-based auth (JWT middleware) and production access controls.",
+      "Delivered shared UI library (ShadCN + Tailwind) reused across 8+ modules.",
+      "Automated testing with Playwright + Jest for critical user flows.",
+    ],
+  },
+  {
+    title: "Full Stack Engineer",
+    company_name: "InvoiceStock",
+    icon: techsolutions,
+    iconBg: "#b7e4c7",
+    date: "Jul 2022 – Jun 2024",
+    points: [
+      "Owned end-to-end product features and frontend architecture leadership.",
+      "Built inventory, barcode scanning, and automated invoicing workflows with PDFs and email automation.",
+      "Migrated frontend to Next.js + TypeScript + Zustand, reducing bundle size by 28%.",
+      "Implemented multi-tenant data isolation and secure RBAC for scalable SaaS.",
+      "Improved CI/CD flows, reducing release friction and rollback times.",
+      "Mentored junior devs and standardized component-driven UI patterns.",
+    ],
+  },
+  {
+    title: "Senior Frontend Developer",
+    company_name: "RouteLane LLC",
+    icon: rex,
+    iconBg: "#f3d2c1",
+    date: "Mar 2021 – Jun 2022",
+    points: [
+      "Developed real-time driver/load tracking dashboards using React, Firebase, and Google Maps API.",
+      "Improved mobile-first dispatch UI, boosting efficiency by 20–25%.",
+      "Collaborated with backend teams on TypeScript + REST endpoints.",
+      "Enhanced real-time visibility dashboards for logistics operations.",
+    ],
+  },
+  {
+    title: "Freelance Web Developer",
     company_name: "Upwork",
     icon: upwork,
     iconBg: "#a8dadc",
-    date: "Jan 2021 – Present",
+    date: "Jun 2019 – Feb 2021",
     points: [
-      "Delivered 5+ production-grade web apps for clients across logistics, fintech, and e-commerce domains.",
-      "Scoped, built, and deployed full-stack apps using React.js, Next.js, Node.js, Firebase, and MongoDB.",
-      "Integrated Stripe payments, protected media, dashboards, and RBAC authentication.",
-      "Collaborated with clients via Upwork chat, email, and Trello; delivered handoff-ready codebases with docs.",
-      "Maintained 90%+ client satisfaction across all engagements through consistent delivery and communication.",
-    ],
-  },
-  {
-    title: "Frontend Developer",
-    company_name: "RouteLane LLC",
-    icon: rex, // your routeLane icon here
-    iconBg: "#f3d2c1",
-    date: "Mar 2023 – Present",
-    points: [
-      "Built and maintained frontend for a real-time trucking and dispatch platform using React, Firebase, and Tailwind CSS.",
-      "Implemented real-time tracking with Firebase listeners and optimized UI for mobile-first usage by field staff.",
-      "Collaborated with backend/API teams and participated in QA/testing cycles to ensure stable delivery.",
-      "Worked directly with operations to iterate on UX based on dispatcher feedback from production.",
-    ],
-  },
-  {
-  title: "Lead Product Developer",
-  company_name: "InvoiceStock",
-  icon: techsolutions, // reuse your InvoiceStock icon
-  iconBg: "#b7e4c7",
-  date: "Jul 2023 – Jul 2025",
-  points: [
-    "Designed and delivered end-to-end ML solutions including data ingestion, feature engineering, model training, deployment, and monitoring.",
-    "Built NLP pipelines (text cleaning, tokenization, transformer fine-tuning) for summarization and intent classification in customer support workflows.",
-    "Developed computer vision modules in PyTorch for automated document parsing and barcode extraction; integrated with React/Next.js frontends via REST APIs.",
-    "Containerized inference with Docker + FastAPI, deployed scalable endpoints on AWS (ECS/Lambda), and monitored performance with Prometheus/CloudWatch.",
-    "Implemented MLOps practices: dataset versioning, MLflow model registry, CI/CD for retraining, and automated evaluation pipelines.",
-    "Collaborated with product owners to translate KPIs into measurable model objectives (precision/recall thresholds, latency SLOs), delivering production-ready AI features that reduced manual workload.",
-  ],
-},
-  {
-    title: "Senior Salesforce Data Administrator",
-    company_name: "Private Contract [NDA]",
-    icon: summiz, // add relevant icon here
-    iconBg: "#dee2ff",
-    date: "Jun 2025 – Present",
-    points: [
-      "Manage Salesforce CRM data integrity and perform regular audits across Contacts, Leads, and Accounts.",
-      "De-duplicate and validate datasets using tools like Plauti Duplicate Check and Data Import Wizard.",
-      "Maintain secure field-level permissions and access controls through role-based Permission Sets.",
-      "Support operational teams with custom dashboards and reporting for business insight.",
-      "Collaborate cross-functionally to optimize CRM automation pipelines and data flows (in progress).",
+      "Delivered 15+ responsive, SEO-optimized websites and web apps for SMBs and startups.",
+      "Integrated Firebase auth and dynamic content systems.",
+      "Focused on accessibility, mobile responsiveness, and UX clarity.",
+      "Learned project scoping, client handling, and agile iteration.",
     ],
   },
 ];
-
 
 // 🌐 Social Links
 export const socialLinks = [
