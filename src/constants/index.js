@@ -35,6 +35,7 @@ import {
 } from "../assets/icons";
 
 // 🧠 Skills (Ordered by category)
+// 🧠 Skills (LinkedIn-consistent, restricted types)
 export const skills = [
   // 👉 Frontend
   { imageUrl: html, name: "HTML", type: "Frontend" },
@@ -44,15 +45,15 @@ export const skills = [
   { imageUrl: mui, name: "Material-UI", type: "Frontend" },
   { imageUrl: javascript, name: "JavaScript", type: "Frontend" },
   { imageUrl: typescript, name: "TypeScript", type: "Frontend" },
-  { imageUrl: react, name: "React", type: "Frontend" },
+  { imageUrl: react, name: "React.js", type: "Frontend" },
   { imageUrl: nextjs, name: "Next.js", type: "Frontend" },
 
   // 👉 State Management
   { imageUrl: redux, name: "Redux", type: "State Management" },
 
   // 👉 Backend
-  { imageUrl: express, name: "Express", type: "Backend" },
   { imageUrl: nodejs, name: "Node.js", type: "Backend" },
+  { imageUrl: express, name: "Express.js", type: "Backend" },
 
   // 👉 Database
   { imageUrl: mongodb, name: "MongoDB", type: "Database" },
