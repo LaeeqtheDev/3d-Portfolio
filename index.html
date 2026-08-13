@@ -2,13 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Syed Laeeq Ahmed — Full-Stack JavaScript Developer</title>
+    <meta
+      name="description"
+      content="Full-Stack JavaScript Developer with 7+ years building SaaS products and web applications in React, Next.js, Node.js and TypeScript. Based in Lahore, open to EU relocation and remote."
+    />
+    <meta name="author" content="Syed Laeeq Ahmed" />
+    <meta name="theme-color" content="#0B1220" />
+    <link rel="canonical" href="https://laeeqthedevportfolio.vercel.app/" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="google-site-verification" content="Q4kAWv8xwtpl4EHU5RTNh97JEL8mJ3z5hYhcX0Roc5I" />
-    <title>Laeeqthedev Portfolio</title>
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Syed Laeeq Ahmed — Full-Stack JavaScript Developer" />
+    <meta
+      property="og:description"
+      content="7+ years building SaaS products in React, Next.js, Node.js and TypeScript. Multi-tenant architecture, RBAC, CI/CD and AI features shipped to production."
+    />
+    <meta property="og:url" content="https://laeeqthedevportfolio.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Fonts moved out of index.css. An @import inside CSS blocks rendering
+      until the stylesheet is parsed AND the font CSS is fetched — two
+      serialised round trips. Doing it here with preconnect starts the
+      handshake immediately.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500&display=swap"
+    />
+
+    <!-- Draco decoder for the compressed .glb models -->
+    <link rel="dns-prefetch" href="https://www.gstatic.com" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Syed Laeeq Ahmed",
+        "jobTitle": "Full-Stack JavaScript Developer",
+        "email": "laeeqthedev@gmail.com",
+        "url": "https://laeeqthedevportfolio.vercel.app/",
+        "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
+        "sameAs": [
+          "https://github.com/LaeeqtheDev",
+          "https://www.linkedin.com/in/syed-laeeq-ahmed/",
+          "https://github.com/northfoundrystudio"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      Syed Laeeq Ahmed — Full-Stack JavaScript Developer. This portfolio needs
+      JavaScript. Reach me at laeeqthedev@gmail.com.
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

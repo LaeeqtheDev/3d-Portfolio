@@ -14,18 +14,18 @@ export function Plane({ isRotating, ...props }) {
   // Use an effect to control the plane's animation based on 'isRotating'
   // Note: Animation names can be found on the Sketchfab website where the 3D model is hosted.
   useEffect(() => {
-    if (isRotating) {
-      actions["Take 001"].play();
-    } else {
-      actions["Take 001"].stop();
-    }
+    // Compression can rename clips — resolve by name, then fall back.
+    const clip = actions?.["Take 001"] ?? Object.values(actions ?? {})[0];
+    if (!clip) return;
+
+    if (isRotating) clip.play();
+    else clip.stop();
   }, [actions, isRotating]);
 
   return (
     <mesh {...props} ref={ref}>
-      // use the primitive element when you want to directly embed a complex 3D
-      model or scene
       <primitive object={scene} />
     </mesh>
   );
 }
+useGLTF.preload(planeScene);

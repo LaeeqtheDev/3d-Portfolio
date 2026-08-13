@@ -1,65 +1,99 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* Fonts are loaded from index.html with preconnect — importing them here
+   would block first paint behind a second round trip. */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --blue-rgb: 237 245 255;
-  --green-rgb: 125 161 35;
+  --ink: #0b1220;
+  --paper: #f7f9fc;
+  --horizon: #0072ff;
+  --sky: #00c6ff;
+  --haze: #64748b;
+  --rule: #e2e8f0;
+  --signal: #ff9f1c;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Work Sans", system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-body:has(.card[data-color="blue"]:hover) {
-  background-color: rgb(var(--blue-rgb) / 25%);
+/* Visible keyboard focus everywhere, without the default halo on mouse click. */
+:focus-visible {
+  outline: 2px solid var(--horizon);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-body:has(.card[data-color="green"]:hover) {
-  background-color: rgb(var(--green-rgb) / 25%);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer utilities {
   .max-container {
-    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-6 min-h-[calc(100vh-80px)];
   }
 
   .head-text {
-    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
+    @apply sm:text-5xl text-3xl font-bold sm:leading-tight leading-tight font-display tracking-tight;
   }
 
   .subhead-text {
-    @apply font-semibold sm:text-3xl text-xl relative font-poppins;
+    @apply font-display font-bold sm:text-3xl text-xl tracking-tight;
   }
 
   .blue-gradient_text {
     @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
   }
 
+  /* The utility face: small, uppercase, wide tracking. Used for every piece
+     of metadata on the site — years, counts, section labels, status. */
+  .meta {
+    @apply font-display text-meta font-medium uppercase text-haze;
+  }
+
+  .rule-heading {
+    @apply flex items-baseline gap-4 border-b border-rule pb-3;
+  }
+
   .input {
-    @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card;
+    @apply bg-white border border-rule text-ink text-sm rounded-lg focus:ring-2 focus:ring-horizon/30 focus:border-horizon block w-full p-3 mt-2.5 font-normal shadow-card transition;
   }
 
   .textarea {
-    @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-card;
+    @apply block p-3 w-full text-sm text-ink bg-white rounded-lg border border-rule focus:ring-2 focus:ring-horizon/30 focus:border-horizon mt-2.5 font-normal shadow-card transition;
   }
 
   .btn {
-    @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+    @apply inline-flex items-center justify-center gap-2 text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] font-display font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-3 text-center transition-transform duration-200 ease-glide hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 font-display font-medium rounded-lg text-sm px-6 py-3 border border-rule text-ink bg-white transition-colors duration-200 hover:border-horizon hover:text-horizon;
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+    @apply flex justify-between items-center sm:px-16 px-6 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-20 right-0 left-0;
   }
 
-  .footer {
-    @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
-  }
-
-  .footer-container {
-    @apply flex flex-wrap gap-7 items-center justify-between;
+  .nav-link {
+    @apply font-display text-[0.95rem] font-medium transition-colors duration-200;
   }
 
   .info-box {
@@ -67,7 +101,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .neo-btn {
-    @apply py-3 px-6 rounded-lg text-blue-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+    @apply py-3 px-6 rounded-lg text-blue-500 text-center font-display font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
   }
 
   .cta {
@@ -75,9 +109,150 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta-text {
-    @apply text-black-500 font-extrabold flex-1 text-3xl max-md:text-center;
+    @apply font-display text-ink font-bold flex-1 text-3xl tracking-tight max-md:text-center;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/*  SIGNATURE: the flight-log entry                                    */
+/*                                                                     */
+/*  Every project reads like a log line — index, status light, then    */
+/*  the record. The left hairline is the runway edge: it lights up     */
+/*  horizon-blue on hover and focus, and that is the only movement.    */
+/* ------------------------------------------------------------------ */
+
+.log-entry {
+  position: relative;
+  padding: 1.5rem 0 1.75rem 1.5rem;
+  border-left: 1px solid var(--rule);
+  transition: border-color 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.log-entry::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 1.5rem;
+  bottom: auto;
+  width: 1px;
+  height: 0;
+  background: linear-gradient(180deg, var(--sky), var(--horizon));
+  transition: height 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.log-entry:hover,
+.log-entry:focus-within {
+  transform: translateX(2px);
+}
+
+.log-entry:hover::before,
+.log-entry:focus-within::before {
+  height: calc(100% - 3rem);
+}
+
+.log-index {
+  font-variant-numeric: tabular-nums;
+  transition: color 240ms ease;
+}
+
+.log-entry:hover .log-index,
+.log-entry:focus-within .log-index {
+  color: var(--horizon);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  flex: none;
+}
+
+.status-live {
+  background: var(--signal);
+  box-shadow: 0 0 0 3px rgb(255 159 28 / 0.18);
+}
+
+.status-private {
+  background: var(--haze);
+  opacity: 0.5;
+}
+
+.stack-chip {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--haze);
+}
+
+.stack-chip + .stack-chip::before {
+  content: "·";
+  margin: 0 0.5rem;
+  color: var(--rule);
+}
+
+.link-out {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.link-out:hover {
+  color: var(--horizon);
+  border-bottom-color: var(--horizon);
+}
+
+.link-out svg {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-out:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Timeline (replaces react-vertical-timeline-component)              */
+/* ------------------------------------------------------------------ */
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2.5rem;
+  border-left: 1px solid var(--rule);
+}
+
+.timeline-item:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1.5px solid var(--rule);
+}
+
+.timeline-item[data-current="true"]::before {
+  background: var(--horizon);
+  border-color: var(--horizon);
+  box-shadow: 0 0 0 4px rgb(0 114 255 / 0.14);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Kept from the original scene styling                               */
+/* ------------------------------------------------------------------ */
 
 .glassmorphism {
   background: rgba(8, 116, 239, 0.07);
@@ -85,13 +260,6 @@ body:has(.card[data-color="green"]:hover) {
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.logo {
-  border-radius: 8.889px;
-  background: #fff;
-  box-shadow: 0px 10px 35px -4px rgba(67, 83, 255, 0.15),
-    0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
 }
 
 .block-container {
@@ -117,27 +285,24 @@ body:has(.card[data-color="green"]:hover) {
 .block-container .btn-back-red {
   background: linear-gradient(135deg, #ff4b1f -20%, #ff9068 120%);
 }
-
 .block-container .btn-back-green {
   background: linear-gradient(135deg, #adfda2 -20%, #11d3f3 120%);
 }
-
 .block-container .btn-back-yellow {
   background: linear-gradient(135deg, #f7971e -20%, #ffd200 120%);
 }
-
 .block-container .btn-back-blue {
   background: linear-gradient(135deg, #0061ff -20%, #60efff 120%);
 }
-
 .block-container .btn-back-orange {
   background: linear-gradient(135deg, #ff0f7b -20%, #f89b29 120%);
 }
-
 .block-container .btn-back-pink {
   background: linear-gradient(135deg, #e81cff -20%, #40c9ff 120%);
 }
-
+.block-container .btn-back-purple {
+  background: linear-gradient(135deg, #8e2de2 -20%, #4a00e0 120%);
+}
 .block-container .btn-back-black {
   background: linear-gradient(135deg, #0a1647 -20%, #e4e7e4 120%);
 }
@@ -165,7 +330,7 @@ body:has(.card[data-color="green"]:hover) {
   transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
 }
 
-/* Neo Brutalism */
+/* Neo Brutalism — the voice of the 3D scene, kept intact */
 .neo-brutalism-blue {
   background: #2b77e7;
   position: relative;

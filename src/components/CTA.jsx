@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
 
-const CTA = () => {
-  return (
-    <section className='cta'>
-      <p className='cta-text'>
-        Have a project in mind? <br className='sm:block hidden' />
-        Let’s build something together!
+import { profile } from "../constants";
+
+const CTA = () => (
+  <section className="cta">
+    <div className="flex-1">
+      <p className="cta-text">
+        Have something you need built?
       </p>
-      <Link to='/contact' className='btn'>
-        Contact
+      <p className="mt-2 text-haze max-md:text-center">
+        {profile.availability}. Usually replies within a day.
+      </p>
+    </div>
+    <div className="flex gap-3 max-md:w-full max-md:flex-col">
+      <Link to="/contact" className="btn">
+        Start a conversation
       </Link>
-    </section>
-  );
-};
+      <a href={profile.resume} download className="btn-ghost">
+        Download résumé
+      </a>
+    </div>
+  </section>
+);
 
 export default CTA;

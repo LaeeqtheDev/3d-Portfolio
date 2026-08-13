@@ -1,71 +1,138 @@
-import { Link } from "react-router-dom";
+import CTA from "../components/CTA";
+import { ArrowUpRight, CodeIcon, LockIcon } from "../components/icons";
+import { projectCategories, projects } from "../constants";
 
-import  CTA  from "../components/CTA";
-import { projects } from "../constants";
-import { arrow } from "../assets/icons";
+const ProjectEntry = ({ project, index }) => {
+  const { name, tagline, description, stack, live, repo, repoNote, year } =
+    project;
 
-const Projects = () => {
   return (
-    <section className='max-container'>
-      <h1 className='head-text'>
-        My{" "}
-        <span className='blue-gradient_text drop-shadow font-semibold'>
-          Projects
+    <article className="log-entry">
+      <div className="flex items-center gap-3">
+        <span className="meta log-index !text-haze">
+          {String(index).padStart(2, "0")}
         </span>
-      </h1>
-
-<p className='text-slate-500 mt-2 leading-relaxed'>
-  These are full-stack, production-ready projects I’ve designed, developed, and deployed — covering SaaS dashboards, subscription platforms, eCommerce storefronts, and mobile apps. Every project demonstrates clean UI, robust backend, real-time features, and scalable architecture.
-</p>
-
-<p className='text-slate-500 mt-2 leading-relaxed'>
-  Built with TypeScript, React/Next.js, Node.js, Firebase, and MongoDB, these apps include secure authentication, role-based access, Stripe integration, CMS-driven content, and optimized deployment pipelines.
-</p>
-
-
-
-
-      <div className='flex flex-wrap my-20 gap-16'>
-        {projects.map((project) => (
-          <div className='lg:w-[400px] w-full' key={project.name}>
-            <div className='block-container w-12 h-12'>
-              <div className={`btn-back rounded-xl ${project.theme}`} />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={project.iconUrl}
-                  alt='threads'
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-
-            <div className='mt-5 flex flex-col'>
-              <h4 className='text-2xl font-poppins font-semibold'>
-                {project.name}
-              </h4>
-              <p className='mt-2 text-slate-500'>{project.description}</p>
-              <div className='mt-5 flex items-center gap-2 font-poppins'>
-                <Link
-                  to={project.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='font-semibold text-blue-600'
-                >
-                  Live Link
-                </Link>
-                <img
-                  src={arrow}
-                  alt='arrow'
-                  className='w-4 h-4 object-contain'
-                />
-              </div>
-            </div>
-          </div>
-        ))}
+        <span className="meta">{year}</span>
+        <span className="flex-1 h-px bg-rule" />
+        {live ? (
+          <span className="flex items-center gap-2">
+            <span className="status-dot status-live" />
+            <span className="meta !text-signal">Live</span>
+          </span>
+        ) : (
+          <span className="flex items-center gap-2">
+            <span className="status-dot status-private" />
+            <span className="meta">{repo ? "Source" : "Private"}</span>
+          </span>
+        )}
       </div>
 
-      <hr className='border-slate-200' />
+      <h3 className="mt-4 font-display font-bold text-2xl tracking-tight">
+        {name}
+      </h3>
+      <p className="mt-1 text-horizon font-display text-sm font-medium">
+        {tagline}
+      </p>
+      <p className="mt-3 text-haze text-sm leading-relaxed max-w-xl">
+        {description}
+      </p>
 
+      <p className="mt-4">
+        {stack.map((tech) => (
+          <span key={tech} className="stack-chip">
+            {tech}
+          </span>
+        ))}
+      </p>
+
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+        {live && (
+          <a
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-out"
+          >
+            Open live
+            <ArrowUpRight />
+          </a>
+        )}
+        {repo && (
+          <a
+            href={repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-out"
+          >
+            <CodeIcon />
+            View code
+          </a>
+        )}
+        {!repo && repoNote && (
+          <span className="inline-flex items-center gap-2 text-sm text-haze">
+            <LockIcon />
+            {repoNote} repository
+          </span>
+        )}
+        {!live && !repo && !repoNote && (
+          <span className="text-sm text-haze">
+            Walkthrough available on request
+          </span>
+        )}
+      </div>
+    </article>
+  );
+};
+
+const Projects = () => {
+  // One running index across the whole log, so numbering means something.
+  let counter = 0;
+
+  return (
+    <section className="max-container">
+      <p className="meta">Work</p>
+      <h1 className="head-text mt-3">
+        Things I&apos;ve{" "}
+        <span className="blue-gradient_text">shipped</span>
+      </h1>
+
+      <p className="mt-6 text-haze leading-relaxed max-w-2xl">
+        Production SaaS platforms, client builds and a few experiments. Each
+        entry links to whatever exists — a live deployment, the source, or both.
+        Anything marked private is client or studio code I can walk you through
+        instead.
+      </p>
+
+      {projectCategories.map((category) => {
+        const items = projects.filter((p) => p.category === category);
+        if (!items.length) return null;
+
+        return (
+          <div key={category} className="mt-16">
+            <div className="rule-heading">
+              <h2 className="subhead-text">{category}</h2>
+              <span className="meta ml-auto">
+                {items.length} {items.length === 1 ? "entry" : "entries"}
+              </span>
+            </div>
+
+            <div className="mt-6">
+              {items.map((project) => {
+                counter += 1;
+                return (
+                  <ProjectEntry
+                    key={project.name}
+                    project={project}
+                    index={counter}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+
+      <hr className="border-rule mt-16" />
       <CTA />
     </section>
   );
