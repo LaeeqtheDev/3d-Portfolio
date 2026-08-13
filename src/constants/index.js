@@ -10,6 +10,9 @@ export const profile = {
   email: "laeeqthedev@gmail.com",
   phone: "+92 332 4265921",
   resume: "/Syed-Laeeq-Ahmed-CV.pdf",
+  github: "https://github.com/LaeeqtheDev",
+  linkedin: "https://www.linkedin.com/in/syed-laeeq-ahmed/",
+  upwork: "https://www.upwork.com/freelancers/~0121dd549b3f2830da",
   yearsExperience: "7+",
 };
 
@@ -175,9 +178,6 @@ export const certifications = [
 /*                                                                     */
 /*  `live` and `repo` are optional. A card renders only the buttons    */
 /*  it has real URLs for, so nothing ever links to a dead page.        */
-/*                                                                     */
-/*  TODO — add URLs when you have them:                                */
-/*    Converso · Resumind · Subme                                      */
 /* ------------------------------------------------------------------ */
 
 export const projects = [
@@ -227,8 +227,9 @@ export const projects = [
     description:
       "Students build their own AI voice tutors and learn through spoken conversation. Real-time TTS/STT via the Vapi SDK, subscription billing and RBAC through Clerk and Stripe, with Sentry error monitoring.",
     stack: ["Next.js", "Supabase", "Clerk", "Vapi AI", "Stripe"],
-    live: null,
-    repo: null,
+    live: "https://converso-ai-saas-liart.vercel.app",
+    repo: "https://github.com/LaeeqtheDev/Converso",
+    featured: true,
   },
   {
     name: "Resumind",
@@ -237,9 +238,9 @@ export const projects = [
     year: "2026",
     description:
       "Scores a resume against a job description for ATS compatibility and missing keywords. Built on React Router 7 and Puter.js with PDF parsing and strict-JSON model output.",
-    stack: ["React Router 7", "Puter.js", "AI"],
-    live: null,
-    repo: null,
+    stack: ["React Router 7", "Puter.js", "TypeScript", "AI"],
+    live: "https://ai-resume-anlayzer.vercel.app",
+    repo: "https://github.com/LaeeqtheDev/Resumind",
   },
   {
     name: "Subme",
@@ -249,8 +250,8 @@ export const projects = [
     description:
       "Three-tier membership system with Stripe subscriptions, RBAC content gating and live earnings tracking. Serving 500+ paying users.",
     stack: ["Next.js", "Stripe", "Clerk", "Sanity"],
-    live: null,
-    repo: null,
+    live: "https://subme-bay.vercel.app",
+    repo: "https://github.com/LaeeqtheDev/Subme",
   },
 
   /* ---------------- Client & studio work ---------------- */
@@ -274,7 +275,7 @@ export const projects = [
     description:
       "Property listings with filters, user authentication, an admin management panel and an AI chatbot assistant. Firebase-backed and built to scale.",
     stack: ["Next.js", "Firebase", "Clerk", "shadcn/ui"],
-    live: null,
+    live: "https://locopro-client.vercel.app",
     repo: "https://github.com/northfoundrystudio/locopro-client",
   },
   {
@@ -296,7 +297,7 @@ export const projects = [
     description:
       "Real-time driver and load tracking for dispatchers, built with Firebase and the Google Maps API. Mobile-first dashboards that improved dispatch efficiency by 20–25%.",
     stack: ["React", "Firebase", "Google Maps API"],
-    live: null,
+    live: "https://routelanellc.vercel.app",
     repo: null,
     repoNote: "Private",
   },
@@ -310,7 +311,7 @@ export const projects = [
     description:
       "Smart parking surveillance combining license-plate recognition with biometric authentication for entry control.",
     stack: ["TypeScript", "Computer Vision"],
-    live: null,
+    live: "https://sentinel-biometric-parking-system.vercel.app",
     repo: "https://github.com/northfoundrystudio/Sentinel-Biometric-Parking-System",
   },
   {
@@ -347,6 +348,7 @@ export const quickLinks = [
   { label: "GitHub", href: "https://github.com/LaeeqtheDev" },
   { label: "North Foundry org", href: "https://github.com/northfoundrystudio" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/syed-laeeq-ahmed/" },
+  { label: "Upwork", href: "https://www.upwork.com/freelancers/~0121dd549b3f2830da" },
   { label: "All socials", href: "https://linktr.ee/syedlaeeqahmed" },
   { label: "North Foundry", href: "https://northfoundry.vercel.app" },
 ];

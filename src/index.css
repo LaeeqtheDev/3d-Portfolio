@@ -179,16 +179,22 @@ body {
 }
 
 .stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--haze);
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fff;
+  transition: border-color 200ms ease, color 200ms ease;
 }
 
-.stack-chip + .stack-chip::before {
-  content: "·";
-  margin: 0 0.5rem;
-  color: var(--rule);
+.log-entry:hover .stack-chip {
+  border-color: #cbd5e1;
 }
 
 .link-out {
@@ -220,15 +226,31 @@ body {
 /*  Timeline (replaces react-vertical-timeline-component)              */
 /* ------------------------------------------------------------------ */
 
+.timeline-rail {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 2.5rem;
+  width: 1px;
+  background: var(--rule);
+}
+
+/* Drawn in by ScrollTrigger as the section scrolls past. */
+.timeline-spine {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  background: linear-gradient(180deg, var(--sky), var(--horizon));
+}
+
 .timeline-item {
   position: relative;
   padding-left: 2rem;
   padding-bottom: 2.5rem;
-  border-left: 1px solid var(--rule);
 }
 
 .timeline-item:last-child {
-  border-left-color: transparent;
   padding-bottom: 0;
 }
 
@@ -236,12 +258,13 @@ body {
   content: "";
   position: absolute;
   left: -4.5px;
-  top: 0.45rem;
-  width: 8px;
-  height: 8px;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
   background: #fff;
   border: 1.5px solid var(--rule);
+  z-index: 1;
 }
 
 .timeline-item[data-current="true"]::before {
@@ -345,4 +368,319 @@ body {
   border: #fff;
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+}
+
+/* ==================================================================== */
+/*  MOTION PRIMITIVES                                                   */
+/* ==================================================================== */
+
+/* Word-level headline masking. Padding + negative margin keeps descenders
+   (g, y, p) from being clipped by the overflow mask. */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Reading progress, pinned just under the fixed navbar. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--sky), var(--horizon));
+}
+
+/* ==================================================================== */
+/*  LANDING STAGE INDICATOR                                             */
+/* ==================================================================== */
+
+.stage-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 10;
+  width: min(30rem, calc(100vw - 2.5rem));
+  pointer-events: none;
+}
+
+.stage-track {
+  position: relative;
+  height: 2px;
+  border-radius: 999px;
+  background: rgb(11 18 32 / 0.12);
+}
+
+.stage-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--sky), var(--horizon));
+  transition: transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Draining back to the start is slower and eased both ways, so a reset
+   reads as deliberate rather than as a glitch. */
+.stage-fill[data-resetting="true"] {
+  transition: transform 800ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.stage-dot {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 999px;
+  background: var(--horizon);
+  opacity: 0.35;
+  transform: scale(0.5);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease;
+}
+
+.stage-dot[data-active="true"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stage-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+}
+
+.stage-label {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(11 18 32 / 0.35);
+  transition: color 300ms ease;
+}
+
+.stage-label-active {
+  color: var(--horizon);
+}
+
+@media (max-width: 400px) {
+  .stage-label {
+    font-size: 0.5625rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ==================================================================== */
+/*  MARQUEE                                                             */
+/* ==================================================================== */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--rule);
+  padding-block: 0.9rem;
+  /* Fade the ends so items don't pop in and out at the edges. */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-inline: 1.5rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--haze);
+  white-space: nowrap;
+}
+
+/* ==================================================================== */
+/*  CARDS & CHIPS                                                       */
+/* ==================================================================== */
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background: radial-gradient(
+      120% 90% at 70% 0%,
+      rgb(0 198 255 / 0.14),
+      transparent 62%
+    ),
+    linear-gradient(180deg, #fff, #f1f6fd);
+}
+
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--horizon);
+  flex: none;
+}
+
+.stat-card {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.1rem;
+  position: relative;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 2.25rem;
+  height: 2px;
+  background: var(--horizon);
+}
+
+.record-card {
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: #fff;
+  padding: 1rem 1.1rem;
+  transition: border-color 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.record-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 200ms ease, color 200ms ease, transform 200ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-chip:hover {
+  border-color: var(--horizon);
+  color: var(--horizon);
+  transform: translateY(-1px);
+}
+
+.pill-now {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--signal);
+  border: 1px solid rgb(255 159 28 / 0.4);
+  background: rgb(255 159 28 / 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.bullet {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--haze);
+}
+
+.bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1px;
+  background: var(--rule);
+}
+
+.inline-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.inline-link:hover {
+  color: var(--horizon);
+  border-bottom-color: var(--horizon);
+}
+
+/* ==================================================================== */
+/*  PROJECT FILTER                                                      */
+/* ==================================================================== */
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.filter-chip:hover {
+  border-color: #cbd5e1;
+}
+
+.filter-chip-active {
+  border-color: var(--horizon);
+  color: #fff;
+  background: var(--horizon);
+}
+
+.filter-count {
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
 }

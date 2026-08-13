@@ -21,8 +21,16 @@ const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 
-/** Warm the split chunks once the browser is idle, so navigation feels instant. */
+/**
+ * Warm the split chunks once the browser is idle, so navigation feels
+ * instant. Skipped entirely on Data Saver or a 2G/3G connection — nobody on
+ * a metered phone plan should pay for pages they may never open.
+ */
 const prefetchRoutes = () => {
+  const net = navigator.connection;
+  if (net?.saveData) return;
+  if (net?.effectiveType && /2g|3g/.test(net.effectiveType)) return;
+
   import("./pages/Projects");
   import("./pages/About");
   import("./pages/Contact");

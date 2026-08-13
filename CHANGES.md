@@ -53,11 +53,7 @@
 **Client & studio work:** North Foundry (live, private) · Locopro (code) · Healthcare (code) · Routelane (private)
 **Experiments:** Sentinel (code) · Axen (live + code) · This portfolio (live + code)
 
-### You need to fill in three
-
-Converso, Resumind and Subme are on your CV but you didn't give me URLs, and I won't invent them. They're in `src/constants/index.js` with `live: null, repo: null` and a `TODO` comment — set them and the buttons appear. Until then those cards read "Walkthrough available on request", which is a fine thing for a hiring manager to see.
-
-Also worth checking: `socialLinks` had an Upwork entry pointing at `upwork.com` with no profile path — I dropped it rather than ship a link to a homepage. Add your profile URL to `quickLinks` if you want it back.
+All 13 entries are wired: **12 of 13 are live and clickable**, 22 links total. Only Healthcare has no deployment (repo only). Your Upwork profile is in the footer and contact rail.
 
 ---
 
@@ -88,3 +84,67 @@ npm run build
 ```
 
 Your EmailJS environment variables are unchanged: `VITE_APP_EMAILJS_SERVICE_ID`, `VITE_APP_EMAILJS_TEMPLATE_ID`, `VITE_APP_EMAILJS_PUBLIC_KEY`.
+
+---
+---
+
+# Round two — motion, icons, and the stage bar
+
+## Every link is in
+
+22 links across 13 projects; **12 of 13 are live**. Converso, Resumind and Subme now have both their deployment and their `LaeeqtheDev` repo. Locopro, Sentinel, Routelane and Axen have their live URLs. Your Upwork profile is in the footer and on the contact page. Only Healthcare is repo-only.
+
+## GSAP — and where it is *not*
+
+GSAP is registered once in `src/lib/motion.js`, which also holds the reduced-motion guard and the shared reveal helpers. Everything runs inside `gsap.context()` and reverts on unmount, so navigating away leaves no dangling ScrollTriggers.
+
+**It costs the landing page nothing.** GSAP is 46 KB gzipped, and it lands in its own `motion` chunk pulled in only by About, Projects and Contact. Landing-page critical JS is **300 KB gzipped — identical to before I added any of this.**
+
+That took one course correction worth knowing about. My first pass animated the new stage bar with GSAP, which dragged the whole library into the home bundle and pushed it from 25 KB to 147 KB. The stage bar is a single `scaleX` transition, so I rewrote it in plain CSS. If you ever add motion to `Home.jsx` or anything it imports, check the build output — that's the tripwire.
+
+**What actually animates:**
+
+- **Headlines** split into per-word spans that rise out of an overflow mask, staggered 45ms apart. Hand-rolled, ~10 lines, no plugin. The parent keeps an `aria-label` so screen readers still get one clean sentence.
+- **Entrance timelines** on all three pages — eyebrow, headline, lede, then the supporting elements, choreographed as one sequence rather than scattered effects.
+- **The four result numbers count up** when scrolled into view. They write to `textContent` directly, not React state — a 60fps `setState` would re-render the section on every frame.
+- **The experience timeline draws its own spine** as you scroll, scrubbed to scroll position with a sky→horizon gradient.
+- **Tech logo marquee** on About, seamless infinite loop. Slows on hover, pauses when the tab is hidden.
+- **Reading progress hairline** under the navbar on About and Projects.
+- **Project filter** — clicking a category re-staggers the entries. First load reveals them on scroll instead, so entries below the fold still get their moment.
+- **Contact fields** shift 4px on focus; the fox already reacted, now the form does too.
+- **Parallax** on the result cards, desktop only.
+
+**The performance rules I held to:** only `transform` and `opacity` (compositor-only, never layout), every scroll reveal is `once: true` so ScrollTrigger stops watching after it fires, `prefers-reduced-motion` short-circuits everything to a plain fade, and GSAP setup runs in `useLayoutEffect` so nothing flashes before it animates.
+
+## Icons
+
+- **17 new inline SVGs** — category marks for each skill group, section headers, contact rail. Inline means zero requests and they inherit `currentColor`.
+- **Real brand logos on stack chips** — the 16 SVGs already sitting in your repo (React, Next.js, TypeScript, Node, Mongo, Tailwind, Redux…), mapped by name. Tech without a logo renders as a text chip; a half-set of mismatched marks looks worse than none.
+- **Same barrel trap, again.** Importing through `assets/icons/index.js` made Vite emit *every* file it names — `soundon.png`, `soundoff.png`, `summiz.svg` and friends, 60 KB of assets nothing renders. Exactly how `hero.jpg` got in. `TechIcon.jsx` now imports file-by-file, the barrel is deleted, and so are the 18 unused icons.
+
+## Filling the empty space
+
+You were right that the pages read thin. Beyond icons: a hero panel on About with the **biplane flying a slow banked orbit** — reusing `plane.glb`, already cached from the landing page, so it costs zero extra download. Plus the logo marquee, stat cards with an accent rule, hover-lifting record cards for education and certifications, a "Now" pill on your current role, and a project filter bar with live counts.
+
+## The landing bar
+
+Four segments — Intro / Background / Work / Contact — matching the island's rotation stages. Fills as you rotate forward, **drains back to zero when you land on stage one**, with a slower both-ways ease on the reset so it reads as deliberate rather than as a glitch. Dots scale up as each stage is reached, labels highlight, and there's an `aria-live` announcement for screen readers.
+
+## Performance and responsiveness
+
+- **Offscreen canvases stop rendering.** An `IntersectionObserver` sets R3F's `frameloop` to `never` when the About hero or contact fox scrolls out of view, or when the tab is backgrounded. The About canvas sits above three screens of content — without this it renders at 60fps the whole time you're reading.
+- **`performance={{ min: 0.5 }}`** on the landing canvas — R3F drops resolution during a drag and restores it when you let go.
+- **Prefetch respects the network.** Route prefetching now skips entirely on Data Saver or a 2G/3G connection.
+- **`100svh`** on the landing section instead of `100vh`, so mobile browser chrome doesn't cut off the stage bar, which also sits inside `env(safe-area-inset-bottom)`.
+- Marquee ends are masked so logos fade rather than pop. Stage labels shrink below 400px. Everything reflows single-column on mobile, parallax is desktop-only, and filter chips wrap.
+
+## Final numbers
+
+| | Original | Now |
+|---|---|---|
+| Total build | 31 MB | **2.5 MB** |
+| Landing critical JS (gzip) | 310 KB | **300 KB** |
+| GSAP in landing path | — | **none** (async chunk) |
+| Unused assets shipped | 32 MB | **0** |
+
+`npm install` before running — GSAP is a new dependency.

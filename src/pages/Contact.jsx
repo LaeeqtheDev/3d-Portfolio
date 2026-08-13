@@ -1,26 +1,97 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useLayoutEffect, useRef, useState } from "react";
 
 import Alert from "../components/Alert";
 import Loader from "../components/Loader";
-import { ArrowUpRight, MailIcon } from "../components/icons";
+import {
+  ArrowUpRight,
+  CompassIcon,
+  MailIcon,
+  PhoneIcon,
+  PinIcon,
+  SendIcon,
+} from "../components/icons";
 import useAlert from "../hooks/useAlert";
+import useCanvasActive from "../hooks/useCanvasActive";
 import { Fox } from "../models/Fox";
 import { profile, quickLinks } from "../constants";
+import {
+  EASE,
+  EASE_GLIDE,
+  gsap,
+  prefersReducedMotion,
+  splitWords,
+} from "../lib/motion";
 
 const Contact = () => {
+  const root = useRef(null);
+  const headline = useRef(null);
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const [sceneRef, sceneActive] = useCanvasActive();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      if (prefersReducedMotion()) return;
+      const words = splitWords(headline.current);
+
+      gsap
+        .timeline({ defaults: { ease: EASE } })
+        .from("[data-eyebrow]", { autoAlpha: 0, y: 12, duration: 0.5 })
+        .from(
+          words,
+          { yPercent: 115, duration: 0.9, stagger: 0.05, ease: EASE_GLIDE },
+          "-=0.25"
+        )
+        .from("[data-lede]", { autoAlpha: 0, y: 16, duration: 0.7 }, "-=0.55")
+        .from(
+          "[data-field]",
+          { autoAlpha: 0, y: 18, duration: 0.6, stagger: 0.08 },
+          "-=0.4"
+        )
+        .from(
+          "[data-rail] > *",
+          { autoAlpha: 0, x: -10, duration: 0.45, stagger: 0.05 },
+          "-=0.5"
+        )
+        .from(
+          "[data-scene]",
+          { autoAlpha: 0, scale: 0.95, duration: 1, ease: EASE_GLIDE },
+          "-=1"
+        );
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = ({ target: { name, value } }) =>
     setForm((prev) => ({ ...prev, [name]: value }));
 
-  const handleFocus = () => setCurrentAnimation("walk");
-  const handleBlur = () => setCurrentAnimation("idle");
+  const handleFocus = (e) => {
+    setCurrentAnimation("walk");
+    if (!prefersReducedMotion() && e?.target?.closest("[data-field]")) {
+      gsap.to(e.target.closest("[data-field]"), {
+        x: 4,
+        duration: 0.35,
+        ease: EASE,
+      });
+    }
+  };
+
+  const handleBlur = (e) => {
+    setCurrentAnimation("idle");
+    if (!prefersReducedMotion() && e?.target?.closest("[data-field]")) {
+      gsap.to(e.target.closest("[data-field]"), {
+        x: 0,
+        duration: 0.35,
+        ease: EASE,
+      });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +119,6 @@ const Contact = () => {
             text: "Message sent. I'll reply within a day.",
             type: "success",
           });
-
           setTimeout(() => {
             hideAlert(false);
             setCurrentAnimation("idle");
@@ -69,26 +139,27 @@ const Contact = () => {
   };
 
   return (
-    <section className="max-container">
+    <section className="max-container" ref={root}>
       {alert.show && <Alert {...alert} />}
 
-      <p className="meta">Contact</p>
+      <p className="meta" data-eyebrow>
+        Contact
+      </p>
       <h1 className="head-text mt-3">
-        Let&apos;s <span className="blue-gradient_text">talk</span>
+        <span ref={headline} className="inline-block">
+          Tell me what you&apos;re building.
+        </span>
       </h1>
-      <p className="mt-6 text-haze leading-relaxed max-w-2xl">
+      <p className="mt-6 text-haze leading-relaxed max-w-2xl" data-lede>
         Hiring for a full-stack role, or need something built? Send a message
-        below, or reach me directly — either works.
+        below, or reach me directly — either works, and I usually reply within a
+        day.
       </p>
 
-      <div className="mt-10 flex lg:flex-row flex-col gap-12">
+      <div className="mt-12 flex lg:flex-row flex-col gap-12">
         <div className="flex-1 min-w-[50%] flex flex-col">
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="w-full flex flex-col gap-6"
-          >
-            <label className="font-display font-medium text-sm">
+          <form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
+            <label className="font-display font-medium text-sm" data-field>
               Name
               <input
                 type="text"
@@ -104,7 +175,7 @@ const Contact = () => {
               />
             </label>
 
-            <label className="font-display font-medium text-sm">
+            <label className="font-display font-medium text-sm" data-field>
               Email
               <input
                 type="email"
@@ -120,7 +191,7 @@ const Contact = () => {
               />
             </label>
 
-            <label className="font-display font-medium text-sm">
+            <label className="font-display font-medium text-sm" data-field>
               Message
               <textarea
                 name="message"
@@ -135,24 +206,33 @@ const Contact = () => {
               />
             </label>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn"
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              {loading ? "Sending…" : "Send message"}
-            </button>
+            <div data-field>
+              <button type="submit" disabled={loading} className="btn">
+                <SendIcon />
+                {loading ? "Sending…" : "Send message"}
+              </button>
+            </div>
           </form>
 
-          <div className="mt-10 pt-8 border-t border-rule">
+          <div className="mt-12 pt-8 border-t border-rule">
             <p className="meta">Direct</p>
-            <div className="mt-4 flex flex-col gap-3">
+            <div className="mt-4 flex flex-col gap-3" data-rail>
               <a href={`mailto:${profile.email}`} className="link-out">
                 <MailIcon />
                 {profile.email}
               </a>
+              <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="link-out">
+                <PhoneIcon />
+                {profile.phone}
+              </a>
+              <span className="inline-flex items-center gap-2 text-sm text-haze">
+                <PinIcon />
+                {profile.location}
+              </span>
+              <span className="inline-flex items-center gap-2 text-sm text-haze">
+                <CompassIcon />
+                {profile.availability}
+              </span>
               {quickLinks.map(({ label, href }) => (
                 <a
                   key={label}
@@ -169,8 +249,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/2 w-full lg:h-auto md:h-[500px] h-[320px]">
+        <div
+          ref={sceneRef}
+          className="lg:w-1/2 w-full lg:h-auto md:h-[500px] h-[320px] hero-panel !p-0"
+          data-scene
+        >
           <Canvas
+            frameloop={sceneActive ? "always" : "never"}
             camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}
             dpr={[1, 1.5]}
             gl={{ antialias: false, powerPreference: "high-performance" }}
@@ -178,12 +263,7 @@ const Contact = () => {
             <directionalLight position={[0, 0, 1]} intensity={2.5} />
             <ambientLight intensity={1} />
             <pointLight position={[5, 10, 0]} intensity={2} />
-            <spotLight
-              position={[10, 10, 10]}
-              angle={0.15}
-              penumbra={1}
-              intensity={2}
-            />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} />
 
             <Suspense fallback={<Loader />}>
               <Fox
