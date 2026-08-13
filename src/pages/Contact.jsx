@@ -4,18 +4,11 @@ import { Suspense, useLayoutEffect, useRef, useState } from "react";
 
 import Alert from "../components/Alert";
 import Loader from "../components/Loader";
-import {
-  ArrowUpRight,
-  CompassIcon,
-  MailIcon,
-  PhoneIcon,
-  PinIcon,
-  SendIcon,
-} from "../components/icons";
+import { MailIcon, PhoneIcon, SendIcon } from "../components/icons";
 import useAlert from "../hooks/useAlert";
 import useCanvasActive from "../hooks/useCanvasActive";
 import { Fox } from "../models/Fox";
-import { profile, quickLinks } from "../constants";
+import { profile } from "../constants";
 import {
   EASE,
   EASE_GLIDE,
@@ -225,26 +218,6 @@ const Contact = () => {
                 <PhoneIcon />
                 {profile.phone}
               </a>
-              <span className="inline-flex items-center gap-2 text-sm text-haze">
-                <PinIcon />
-                {profile.location}
-              </span>
-              <span className="inline-flex items-center gap-2 text-sm text-haze">
-                <CompassIcon />
-                {profile.availability}
-              </span>
-              {quickLinks.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-out"
-                >
-                  {label}
-                  <ArrowUpRight />
-                </a>
-              ))}
             </div>
           </div>
         </div>
