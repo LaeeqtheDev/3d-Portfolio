@@ -1,94 +1,121 @@
+<h1 align="center">3D Interactive Portfolio</h1>
+
+<p align="center">
+  A scroll-driven WebGL portfolio — one continuous 3D scene, navigated by camera rather than by page.
+</p>
+
+<p align="center">
+  <a href="https://laeeqthedevportfolio.vercel.app"><img src="https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live site"></a>
+  <a href="../../actions/workflows/lighthouse.yml"><img src="../../actions/workflows/lighthouse.yml/badge.svg" alt="Lighthouse audit"></a>
+</p>
 
 ---
 
-# 3D Portfolio
+## Overview
 
-**3D Portfolio** is an immersive, scroll-based personal website built with **React Three Fiber**, **Three.js**, **GSAP**, and **Tailwind CSS**. It replaces the traditional portfolio with a cinematic, WebGL-powered experience that guides users through sections like Intro, About, Projects, and Contact using animated camera transitions and interactive 3D scenes.
+Most developer portfolios are a scrolling document with a hero image. This one is a single continuous 3D space: as you scroll, the camera travels through it, and each section — Intro, About, Projects, Contact — is a position in that space rather than a block in a page.
 
----
-
-## ✨ Features
-
-* Scroll-triggered camera and scene animations using GSAP
-* Real-time 3D rendering powered by React Three Fiber and Three.js
-* Fully responsive layout using Tailwind CSS
-* Modular scene structure for each portfolio section
-* Optimized performance with lazy-loading and frustum culling
-* Framer Motion transitions for content reveal animations
-* Component-driven architecture for maintainability
+Rendering 3D on the web is a solved problem. The engineering is in doing it **without the usual costs**: no multi-second wait before first paint, no thermal throttling on a phone, no scroll jank while the GPU is busy, and a scene graph that stays maintainable past the first three sections.
 
 ---
 
-## 🧱 Folder Structure
+## Architecture
 
-* `public/` – Static assets including 3D models and textures  
-* `src/components/` – UI and 3D logic components  
-* `src/scenes/` – Canvas-based scroll scenes (Intro, About, Projects, etc.)  
-* `src/styles/` – Global styles and Tailwind configuration  
-* `App.jsx` – Sets up canvas, scroll layers, and routing  
-* `main.jsx` – Entry point for the React app
+**Scroll is the single source of truth.** Instead of firing animations from discrete scroll events, a normalised progress value (0–1) drives a GSAP timeline that owns camera position, rotation and scene state. Every visual is a pure function of that one value — which is why scrubbing backwards, resizing mid-transition and deep-linking to a section all behave correctly without special-case handling. Event-driven scroll animation is where this class of site usually accumulates its bugs.
+
+**Scenes are isolated modules.** Each section lives in `src/scenes/` as a self-contained component owning its geometry, lighting and animation range. Adding a section means adding a scene and a scroll range, with no edits to a central switch statement. This is the constraint that keeps a WebGL project from collapsing into one 2,000-line `Canvas` component.
+
+**The render loop stays outside React's reconciler.** Per-frame work runs in `useFrame` and mutates refs directly rather than setting state. React owns structure; the loop owns motion. Blurring that line is the most common cause of dropped frames in React Three Fiber applications, and the cost isn't visible until the scene is complex enough that recovery means restructuring.
+
+**Declarative 3D, with an escape hatch.** Three.js manages its scene graph imperatively, which fights React's model. React Three Fiber reconciles the two so composition is JSX — while still exposing the underlying Three.js objects by ref, which matters the moment you need behaviour the abstraction doesn't cover.
 
 ---
 
-## 🚀 Getting Started (Local Setup)
+## Performance
 
-### 1. Clone the repository
+The default failure mode for WebGL sites is loading and drawing everything eagerly. The measures here:
+
+- **Frustum culling** — geometry outside the camera's view is never submitted to the GPU
+- **Deferred scene loading** — later scenes are code-split and fetched as the scroll approaches, so time-to-first-render depends on the intro scene alone rather than the full asset set
+- **Ref-based animation** — no React re-render per frame; state changes are reserved for structural updates
+- **Asset budgeting** — textures resized to the maximum resolution actually resolvable at scene distance, rather than shipped at source resolution
+- **Compositor-driven DOM overlays** — 2D content transitions run through Framer Motion on the compositor, off the WebGL thread
+
+Performance is audited automatically: [`lighthouse.yml`](.github/workflows/lighthouse.yml) runs a Lighthouse pass against the production deployment on every push to `main` and on a weekly schedule. Scores are published to the run summary, so the numbers are generated by CI rather than asserted here. The optimisation history is in [`CHANGES.md`](./CHANGES.md).
+
+---
+
+## Tech Stack
+
+| Layer | Choice | Reasoning |
+|---|---|---|
+| 3D runtime | Three.js | Mature WebGL abstraction with predictable performance characteristics |
+| React bindings | React Three Fiber | Declarative scene composition without losing direct Three.js access |
+| Animation | GSAP + ScrollTrigger | Frame-accurate timeline scrubbing; handles the scroll math correctly across resize |
+| DOM transitions | Framer Motion | Compositor-driven 2D animation, kept off the render loop |
+| Styling | Tailwind CSS | Utility-first, zero runtime cost, no stylesheet drift across scenes |
+| Build | Vite | Native ESM and fast HMR — the iteration loop matters when tuning scenes visually |
+
+---
+
+## Project Structure
 
 ```
-
-git clone [https://github.com/LaeeqtheDev/3d-Portfolio.git](https://github.com/LaeeqtheDev/3d-Portfolio.git)
-cd 3d-Portfolio
-
+public/            Static assets — .glb/.gltf models, textures
+src/
+  components/      Reusable UI and 3D primitives
+  scenes/          One module per scroll section (Intro, About, Projects, Contact)
+  styles/          Global styles and Tailwind layer definitions
+  App.jsx          Canvas setup, scroll container, scene orchestration
+  main.jsx         Entry point
 ```
 
-### 2. Install dependencies
+---
 
-```
+## Running Locally
 
+Requires Node 18+.
+
+```bash
+git clone https://github.com/LaeeqtheDev/3d-Interactive-Portfolio.git
+cd 3d-Interactive-Portfolio
 npm install
-
+npm run dev        # Vite serves on http://localhost:5173
 ```
 
-### 3. Run the development server
-
+```bash
+npm run build      # production build
+npm run preview    # serve the build locally
 ```
 
-npm run dev
+---
 
-```
+## Trade-offs
 
-Then open [http://localhost:3000](http://localhost:3000) in your browser to view the live project.
+Every choice here costs something. Stated rather than omitted:
+
+- **WebGL is a hard requirement.** There is no 2D fallback for devices without hardware acceleration. Acceptable for a portfolio aimed at a technical audience; the wrong call for anything with a general audience.
+- **The site is client-rendered.** Crawlers and link unfurlers receive metadata and a `<noscript>` fallback, not the content. For a personal site indexed mainly on its domain and inbound links this is a reasonable trade; a content site would need SSR or prerendering.
+- **JavaScript, not TypeScript.** A scene graph with this much prop-passing is exactly where a type system earns its keep. The project predates my move to TypeScript by default, and the migration is queued rather than done.
+- **No test suite.** The cost of a visual regression on a portfolio is low and the feedback loop is immediate. I would not ship client work on this basis.
 
 ---
 
-## 🧠 Customization Tips
+## Roadmap
 
-* Replace 3D models in the `public/models` folder with `.glb` or `.gltf` files  
-* Update camera movement and scene transitions inside each `scene/*.jsx` file  
-* Modify colors and font styles using `tailwind.config.js`  
-* Add more sections by creating new scenes and wiring them into the scroll layout  
-
----
-
-## 🧑 Author
-
-Made with 🚀 by [Syed Laeeq Ahmed](https://www.linkedin.com/in/syed-laeeq-ahmed/)
-
-* 📬 Email: [laeeqahmed656@gmail.com](mailto:laeeqahmed656@gmail.com)  
-* 🧑‍💻 GitHub: [github.com/LaeeqtheDev](https://github.com/LaeeqtheDev)
+- [ ] Full `prefers-reduced-motion` path with static section snapshots
+- [ ] Draco/Meshopt compression on model assets
+- [ ] TypeScript migration
+- [ ] Lighthouse budget enforcement — fail CI on regression rather than report only
 
 ---
 
-## 🌍 Deployment
+## Author
 
-* Frontend: Deploy via [Vercel](https://vercel.com) or [Netlify](https://netlify.com)  
-* Hosting optimized for static WebGL sites with CDN support  
+**Syed Laeeq Ahmed** — Full-Stack Lead Engineer @ North Foundry
 
----
+[Portfolio](https://laeeqthedevportfolio.vercel.app) · [LinkedIn](https://www.linkedin.com/in/syed-laeeq-ahmed/) · [GitHub](https://github.com/LaeeqtheDev) · laeeqthedev@gmail.com
 
-## 📄 License
+## License
 
-Free to use for portfolio or educational purposes. Commercial or agency use requires attribution or permission from the author.
-
----
-
+All rights reserved. The source is public to read; the 3D assets, copy and personal branding are not licensed for reuse.
